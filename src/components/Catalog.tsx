@@ -1,12 +1,14 @@
 import catalogServices from "@/services/catalogServices";
 import React, { useEffect, useState } from "react";
+import Card from "./Card";
 
 interface Product {
+  _id: string;
   name: string;
   description?: string;
-  price?: number;
-  rating?: number;
-  stock?: number;
+  price: number;
+  rating: number;
+  stock: number;
   categories?: string[];
   images?: string[];
   createdAt?: Date;
@@ -32,7 +34,16 @@ const Catalog = () => {
   return (
     <>
       {prods.length > 0 ? (
-        <h1>{prods[0].name}</h1>
+        prods.map((prod) => (
+          <Card
+            key={prod._id}
+            name={prod.name}
+            price={prod.price}
+            stock={prod.stock}
+            rating={prod.rating}
+            images={prod.images || []}
+          />
+        ))
       ) : (
         <p>No products available.</p>
       )}
