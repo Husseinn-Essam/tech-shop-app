@@ -33,20 +33,22 @@ const Catalog = () => {
 
   return (
     <>
-      {prods.length > 0 ? (
-        prods.map((prod) => (
-          <Card
-            key={prod._id}
-            name={prod.name}
-            price={prod.price}
-            stock={prod.stock}
-            rating={prod.rating}
-            images={prod.images || []}
-          />
-        ))
-      ) : (
-        <p>No products available.</p>
-      )}
+      <div className="flex flex-row gap-2">
+        {prods.length > 0 ? (
+          prods.map((prod) => (
+            <Card
+              key={prod._id}
+              name={prod.name}
+              price={prod.price}
+              stock={prod.stock}
+              rating={prod.rating}
+              images={prod.images || []}
+            />
+          ))
+        ) : (
+          <p>No products available.</p>
+        )}
+      </div>
     </>
   );
 };
