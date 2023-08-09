@@ -15,25 +15,12 @@ interface Product {
   updatedAt?: Date;
 }
 
-const Catalog = () => {
-  const [prods, setProds] = useState<Product[]>([]);
-
-  useEffect(() => {
-    async function fetchProds() {
-      try {
-        const prodsData = await catalogServices.getAllProds();
-        setProds(prodsData);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    }
-
-    fetchProds();
-  }, []);
-
+const Catalog = async () => {
+  const prods: Product[] = await catalogServices.getAllProds();
   return (
     <>
-      <div className="flex flex-row gap-2">
+      {/* <div className="grid grid-cols-[repeat(auto-fill,minmax(256px,1fr))] gap-2"> */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4">
         {prods.length > 0 ? (
           prods.map((prod) => (
             <Card
