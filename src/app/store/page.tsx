@@ -4,6 +4,8 @@ import Catalog from "@/components/Catalog";
 const Store = async () => {
   //const prods: ProductType[] = await catalogServices.getAllProds();
   const prods: ProductType[] = await catalogServices.getCategory(["Laptops"]);
+  console.log(prods);
+
   return <Catalog prods={prods} />;
 };
 
