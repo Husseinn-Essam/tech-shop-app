@@ -1,22 +1,13 @@
 import catalogServices from "@/services/catalogServices";
-import React, { useEffect, useState } from "react";
 import Card from "./Card";
+import ProductType from "@/types/ProductType";
 
-interface Product {
-  _id: string;
-  name: string;
-  description?: string;
-  price: number;
-  rating: number;
-  stock: number;
-  categories?: string[];
-  images?: string[];
-  createdAt?: Date;
-  updatedAt?: Date;
-}
+type CatalogProps = {
+  prods: ProductType[];
+};
+const Catalog: React.FC<CatalogProps> = ({ prods }) => {
+  console.log("we rendered");
 
-const Catalog = async () => {
-  const prods: Product[] = await catalogServices.getAllProds();
   return (
     <>
       {/* <div className="grid grid-cols-[repeat(auto-fill,minmax(256px,1fr))] gap-2"> */}

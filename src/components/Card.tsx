@@ -1,4 +1,5 @@
-import { IKImage, IKVideo, IKContext, IKUpload } from "imagekitio-react";
+import IKContext from "./IKContext";
+import IKImage from "./IKImage";
 import { StarIcon } from "@heroicons/react/20/solid";
 interface cardProps {
   name: string;
