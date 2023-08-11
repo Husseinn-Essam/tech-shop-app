@@ -7,11 +7,22 @@ const getAllProds = async () => {
 };
 
 const getCategory = async (selectedCategories: string[]) => {
-  //console.log("hen");
+  console.log("hen");
 
-  const res = await fetch(`${baseurl}/${selectedCategories.join(",")}`);
+  try {
+    const response = await fetch(`${baseurl}/${selectedCategories.join(",")}`);
+    // const response = await fetch(`http://localhost:3000/api/products/Laptops`);
+    if (!response.ok) {
+      throw new Error("Request failed");
+    }
+    const data = await response.json();
+    console.log(data);
 
-  return res.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return null;
+  }
 };
 
 export default { getAllProds, getCategory };

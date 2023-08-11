@@ -7,10 +7,12 @@ interface categories {
 }
 export const GET = async (
   req: NextApiRequest,
-  { params }: { params: categories }
+  { params }: { params: { category: string } }
 ) => {
   try {
-    const { category } = params;
+    const category = params.category;
+    console.log(category);
+
     const selectedCategories = category.split(",");
     console.log(selectedCategories);
 
