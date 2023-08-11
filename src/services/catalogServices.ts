@@ -7,10 +7,12 @@ const getAllProds = async () => {
 };
 
 const getCategory = async (selectedCategories: string[]) => {
-  console.log("hen");
+  //console.log("hen");
 
-  const res = await fetch(`?categories=${selectedCategories.join(",")}`);
-  console.log(res);
+  const res = await fetch(
+    `${baseurl}?categories=${selectedCategories.join(",")}`
+  );
+  //console.log(res);
 
   return res.json();
 };

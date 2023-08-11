@@ -6,8 +6,6 @@ type CatalogProps = {
   prods: ProductType[];
 };
 const Catalog: React.FC<CatalogProps> = ({ prods }) => {
-  console.log("we rendered");
-
   return (
     <>
       {/* <div className="grid grid-cols-[repeat(auto-fill,minmax(256px,1fr))] gap-2"> */}
