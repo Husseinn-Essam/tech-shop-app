@@ -1,12 +1,15 @@
 import catalogServices from "@/services/catalogServices";
 import ProductType from "@/types/ProductType";
 import Catalog from "@/components/Catalog";
+import { useCategoryFilter } from "@/context/categoryFilterContext";
 const Store = async () => {
-  //const prods: ProductType[] = await catalogServices.getAllProds();
+  //const { state, disptch } = useCategoryFilter();
   const prods: ProductType[] = await catalogServices.getCategory(["Laptops"]);
-  console.log(prods);
 
-  return <Catalog prods={prods} />;
+  //const prods: ProductType[] = await catalogServices.getAllProds();
+  // console.log(prods);
+
+  return <Catalog />;
 };
 
 export default Store;

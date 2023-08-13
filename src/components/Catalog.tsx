@@ -1,11 +1,12 @@
+"use client";
 import catalogServices from "@/services/catalogServices";
 import Card from "./Card";
 import ProductType from "@/types/ProductType";
 
 type CatalogProps = {
-  prods: ProductType[];
+  prodss: ProductType[];
 };
-const Catalog: React.FC<CatalogProps> = ({ prods }) => {
+const Catalog: React.FC = () => {
   return (
     <>
       {/* <div className="grid grid-cols-[repeat(auto-fill,minmax(256px,1fr))] gap-2"> */}
