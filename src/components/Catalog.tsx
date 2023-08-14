@@ -1,7 +1,7 @@
 import catalogServices from "@/services/catalogServices";
 import Card from "./Card";
 import ProductType from "@/types/ProductType";
-import { getCategoriesFromSearchParams } from "@/utils/helpers";
+
 interface CatalogProps {
   catfilters: string | undefined;
   sortFilters: string | undefined;

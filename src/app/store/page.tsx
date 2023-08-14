@@ -5,6 +5,7 @@ import { useCategoryFilter } from "@/context/categoryFilterContext";
 import CategoryFilter from "@/components/CategoryFilter";
 import { log } from "console";
 import SortFilter from "@/components/SortFilter";
+import SearchBar from "@/components/SearchBar";
 const Store = async ({
   searchParams,
 }: {
@@ -13,6 +14,7 @@ const Store = async ({
   return (
     <>
       <div>{searchParams?.sort || "hi"}</div>
+      <SearchBar />
       <div className="flex flex-row gap-2">
         <SortFilter />
         <CategoryFilter />
