@@ -3,11 +3,8 @@ export const updateSearchParams = (type: string, value: string) => {
 
   const searchParams = new URLSearchParams(window.location.search);
   searchParams.set(type, value);
-  const catParam = searchParams.get("cat") || "";
-  const decodedCatParam = decodeURIComponent(catParam);
-  console.log(decodedCatParam);
-  console.log(`${window.location.pathname}`);
-
+  // const catParam = searchParams.get("cat") || "";
+  // const decodedCatParam = decodeURIComponent(catParam);
   const newPathname = `${window.location.pathname}?${searchParams.toString()}`;
   return newPathname;
 };

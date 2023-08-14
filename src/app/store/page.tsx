@@ -9,11 +9,12 @@ const Store = async ({
 }) => {
   return (
     <>
-      <div>{searchParams?.search || "hi"}</div>
-      <SearchBar />
-      <div className="flex flex-row gap-2">
-        <SortFilter />
-        <CategoryFilter />
+      <div className="custom-filters flex flex-row mt-6 items-center justify-between">
+        <SearchBar />
+        <div className="custom-filter-btns flex flex-row gap-4 mr-2">
+          <SortFilter />
+          <CategoryFilter />
+        </div>
       </div>
       <Catalog
         catfilters={searchParams?.cat}

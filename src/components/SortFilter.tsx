@@ -10,7 +10,7 @@ const SortFilter: React.FC = () => {
     "Sort by Price : high to low",
     "Sort by Price : low to high",
   ];
-  const [sortMethod, setSort] = useState("featured");
+  const [sortMethod, setSort] = useState("Sort by Rating");
 
   const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSort(event.target.value);

@@ -2,7 +2,7 @@
 import { updateSearchParams } from "@/utils/helpers";
 import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
-
+import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 const SearchBar: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
@@ -13,11 +13,12 @@ const SearchBar: React.FC = () => {
   }, [searchTerm, router]);
 
   return (
-    <div className="flex items-center">
+    <div className="custom-search flex items-center w-1/2 ml-6 ">
+      <MagnifyingGlassIcon className="h-6 w-6" />
       <input
         type="text"
         placeholder="Search products"
-        className="border p-2 rounded-l"
+        className="border p-2 rounded-l w-full border border-slate-400 shadow-md"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
