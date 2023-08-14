@@ -1,19 +1,15 @@
-import catalogServices from "@/services/catalogServices";
-import ProductType from "@/types/ProductType";
 import Catalog from "@/components/Catalog";
-import { useCategoryFilter } from "@/context/categoryFilterContext";
 import CategoryFilter from "@/components/CategoryFilter";
-import { log } from "console";
 import SortFilter from "@/components/SortFilter";
 import SearchBar from "@/components/SearchBar";
 const Store = async ({
   searchParams,
 }: {
-  searchParams?: { [key: string]: string | undefined };
+  searchParams: { [key: string]: string };
 }) => {
   return (
     <>
-      <div>{searchParams?.sort || "hi"}</div>
+      <div>{searchParams?.search || "hi"}</div>
       <SearchBar />
       <div className="flex flex-row gap-2">
         <SortFilter />
@@ -22,6 +18,7 @@ const Store = async ({
       <Catalog
         catfilters={searchParams?.cat}
         sortFilters={searchParams?.sort}
+        searchBarFilters={searchParams.search}
       />
     </>
   );

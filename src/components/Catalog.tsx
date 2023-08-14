@@ -5,6 +5,7 @@ import ProductType from "@/types/ProductType";
 interface CatalogProps {
   catfilters: string | undefined;
   sortFilters: string | undefined;
+  searchBarFilters: string;
 }
 
 // Sort Products based on filters search params
@@ -24,16 +25,26 @@ const sortProducts = (
   }
 };
 
-const Catalog: React.FC<CatalogProps> = async ({ catfilters, sortFilters }) => {
-  console.log(sortFilters);
+const Catalog: React.FC<CatalogProps> = async ({
+  catfilters,
+  sortFilters,
+  searchBarFilters,
+}) => {
+  console.log(searchBarFilters);
 
   //const prods: ProductType[] = await catalogServices.getCategory(["Laptops"]);
 
   // Get products data by category
   const prods: ProductType[] = await catalogServices.getCategory(catfilters);
-  const sortedProds = sortProducts(prods, sortFilters);
-  //const prods: ProductType[] = await catalogServices.getAllProds();
-  // console.log(prods);
+  const sortedProds =
+    searchBarFilters.length > 0
+      ? sortProducts(
+          prods.filter((prod) =>
+            prod.name.toLowerCase().includes(searchBarFilters)
+          ),
+          sortFilters
+        )
+      : sortProducts(prods, sortFilters);
 
   return (
     <>
