@@ -10,17 +10,17 @@ const Store = async ({
 }: {
   searchParams?: { [key: string]: string | undefined };
 }) => {
-  //const { state, disptch } = useCategoryFilter();
-  //console.log(searchParams);
-
   return (
     <>
-      <div>{searchParams?.cat || "hi"}</div>
+      <div>{searchParams?.sort || "hi"}</div>
       <div className="flex flex-row gap-2">
         <SortFilter />
         <CategoryFilter />
       </div>
-      <Catalog searchParams={searchParams?.cat} />
+      <Catalog
+        catfilters={searchParams?.cat}
+        sortFilters={searchParams?.sort}
+      />
     </>
   );
 };

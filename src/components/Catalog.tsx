@@ -3,17 +3,35 @@ import Card from "./Card";
 import ProductType from "@/types/ProductType";
 import { getCategoriesFromSearchParams } from "@/utils/helpers";
 interface CatalogProps {
-  searchParams: string | undefined;
+  catfilters: string | undefined;
+  sortFilters: string | undefined;
 }
-const Catalog: React.FC<CatalogProps> = async ({ searchParams }) => {
-  // const categories = getCategoriesFromSearchParams(
-  //   router.asPath.split("?")[1] || ""
-  // );
-  console.log(searchParams);
+
+// Sort Products based on filters search params
+const sortProducts = (
+  prods: ProductType[],
+  sortMethod: string | undefined
+): ProductType[] => {
+  switch (sortMethod) {
+    case "Sort by Price : high to low":
+      return prods.slice().sort((a, b) => b.price - a.price);
+    case "Sort by Price : low to high":
+      return prods.slice().sort((a, b) => a.price - b.price);
+    case "Sort by Rating":
+      return prods.slice().sort((a, b) => b.rating - a.rating);
+    default:
+      return prods;
+  }
+};
+
+const Catalog: React.FC<CatalogProps> = async ({ catfilters, sortFilters }) => {
+  console.log(sortFilters);
 
   //const prods: ProductType[] = await catalogServices.getCategory(["Laptops"]);
-  const prods: ProductType[] = await catalogServices.getCategory(searchParams);
 
+  // Get products data by category
+  const prods: ProductType[] = await catalogServices.getCategory(catfilters);
+  const sortedProds = sortProducts(prods, sortFilters);
   //const prods: ProductType[] = await catalogServices.getAllProds();
   // console.log(prods);
 
@@ -21,8 +39,8 @@ const Catalog: React.FC<CatalogProps> = async ({ searchParams }) => {
     <>
       {/* <div className="grid grid-cols-[repeat(auto-fill,minmax(256px,1fr))] gap-2"> */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4">
-        {prods.length > 0 ? (
-          prods.map((prod) => (
+        {sortedProds.length > 0 ? (
+          sortedProds.map((prod) => (
             <Card
               key={prod._id}
               name={prod.name}
