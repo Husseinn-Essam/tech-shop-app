@@ -5,12 +5,14 @@ const getAllProds = async () => {
   return res.json();
 };
 
-const getCategory = async (selectedCategories: string[]) => {
+const getCategory = async (selectedCategories: string | undefined) => {
   try {
-    const response = await fetch(`${baseurl}/${selectedCategories.join(",")}`, {
+    console.log(selectedCategories);
+
+    const response = await fetch(`${baseurl}/${selectedCategories}`, {
       cache: "force-cache",
     });
-    // const response = await fetch(`http://localhost:3000/api/products/Laptops`);
+    // const response = await fetch(`${baseurl}/${selectedCategories}`);
     if (!response.ok) {
       throw new Error("Request failed");
     }

@@ -1,12 +1,18 @@
 import catalogServices from "@/services/catalogServices";
 import Card from "./Card";
 import ProductType from "@/types/ProductType";
+import { getCategoriesFromSearchParams } from "@/utils/helpers";
+interface CatalogProps {
+  searchParams: string | undefined;
+}
+const Catalog: React.FC<CatalogProps> = async ({ searchParams }) => {
+  // const categories = getCategoriesFromSearchParams(
+  //   router.asPath.split("?")[1] || ""
+  // );
+  console.log(searchParams);
 
-type CatalogProps = {
-  prodss: ProductType[];
-};
-const Catalog: React.FC = async () => {
-  const prods: ProductType[] = await catalogServices.getCategory(["Laptops"]);
+  //const prods: ProductType[] = await catalogServices.getCategory(["Laptops"]);
+  const prods: ProductType[] = await catalogServices.getCategory(searchParams);
 
   //const prods: ProductType[] = await catalogServices.getAllProds();
   // console.log(prods);
