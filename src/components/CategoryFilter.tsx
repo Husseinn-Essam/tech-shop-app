@@ -3,7 +3,9 @@ import React, { useState, useEffect } from "react";
 import { updateSearchParams } from "@/utils/helpers";
 import { useRouter } from "next/navigation";
 const CategoryFilter: React.FC = () => {
+  // hard code cats to be removed
   const categories: string[] = ["Laptops", "Mobile Phones"];
+
   const router = useRouter();
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [isOpen, setIsOpen] = useState(false);
