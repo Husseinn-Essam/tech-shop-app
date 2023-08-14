@@ -1,8 +1,10 @@
 "use client";
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import { updateSearchParams } from "@/utils/helpers";
+import { useRouter } from "next/navigation";
 const CategoryFilter: React.FC = () => {
   const categories: string[] = ["Laptops", "Mobile Phones"];
+  const router = useRouter();
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -11,14 +13,17 @@ const CategoryFilter: React.FC = () => {
   };
 
   const handleCategoryToggle = (category: string) => {
-    if (selectedCategories.includes(category)) {
-      setSelectedCategories(
-        selectedCategories.filter((cat) => cat !== category)
-      );
-    } else {
-      setSelectedCategories([...selectedCategories, category]);
-    }
+    const updatedCategories = selectedCategories.includes(category)
+      ? selectedCategories.filter((cat) => cat !== category)
+      : [...selectedCategories, category];
+
+    setSelectedCategories(updatedCategories);
   };
+
+  useEffect(() => {
+    const newPathName = updateSearchParams("cat", selectedCategories.join(","));
+    router.push(newPathName);
+  }, [selectedCategories, router]);
 
   return (
     <div className="relative">
