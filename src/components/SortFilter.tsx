@@ -4,6 +4,7 @@ import { updateSearchParams } from "@/utils/helpers";
 import { useRouter } from "next/navigation";
 
 const SortFilter: React.FC = () => {
+  const router = useRouter();
   const methods = [
     "Sort by Rating",
     "Sort by Price : high to low",
@@ -14,6 +15,11 @@ const SortFilter: React.FC = () => {
   const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSort(event.target.value);
   };
+
+  useEffect(() => {
+    const newpath = updateSearchParams("sort", sortMethod);
+    router.push(newpath);
+  }, [sortMethod, router]);
 
   return (
     <div>

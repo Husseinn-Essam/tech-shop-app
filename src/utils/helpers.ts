@@ -1,5 +1,3 @@
-import { log } from "console";
-
 export const updateSearchParams = (type: string, value: string) => {
   //console.log(value);
 
