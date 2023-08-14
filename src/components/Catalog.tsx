@@ -1,4 +1,3 @@
-"use client";
 import catalogServices from "@/services/catalogServices";
 import Card from "./Card";
 import ProductType from "@/types/ProductType";
@@ -6,7 +5,12 @@ import ProductType from "@/types/ProductType";
 type CatalogProps = {
   prodss: ProductType[];
 };
-const Catalog: React.FC = () => {
+const Catalog: React.FC = async () => {
+  const prods: ProductType[] = await catalogServices.getCategory(["Laptops"]);
+
+  //const prods: ProductType[] = await catalogServices.getAllProds();
+  // console.log(prods);
+
   return (
     <>
       {/* <div className="grid grid-cols-[repeat(auto-fill,minmax(256px,1fr))] gap-2"> */}
