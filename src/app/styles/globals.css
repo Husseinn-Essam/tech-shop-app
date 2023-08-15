@@ -24,3 +24,10 @@
     margin: 0 auto;
   }
 }
+
+@media (max-width: 395px) {
+  .filter-col {
+    flex-direction: column;
+    align-items: center;
+  }
+}

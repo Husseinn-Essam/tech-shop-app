@@ -11,7 +11,7 @@ const Store = async ({
     <>
       <div className="custom-filters flex flex-row mt-6 items-center justify-between">
         <SearchBar />
-        <div className="custom-filter-btns flex flex-row gap-4 mr-2">
+        <div className="filter-col custom-filter-btns flex flex-row gap-4 mr-2">
           <SortFilter />
           <CategoryFilter />
         </div>
