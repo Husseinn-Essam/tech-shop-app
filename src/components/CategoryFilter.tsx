@@ -40,7 +40,7 @@ const CategoryFilter: React.FC = () => {
           {categories.map((category) => (
             <label
               key={category}
-              className="block px-4 py-2 flex flex-row gap-1"
+              className=" px-4 py-2 flex flex-row gap-1"
             >
               <input
                 type="checkbox"

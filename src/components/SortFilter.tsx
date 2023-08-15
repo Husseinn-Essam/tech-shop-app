@@ -6,11 +6,12 @@ import { useRouter } from "next/navigation";
 const SortFilter: React.FC = () => {
   const router = useRouter();
   const methods = [
+    "Featured",
     "Sort by Rating",
     "Sort by Price : high to low",
     "Sort by Price : low to high",
   ];
-  const [sortMethod, setSort] = useState("Sort by Rating");
+  const [sortMethod, setSort] = useState("Featured");
 
   const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSort(event.target.value);

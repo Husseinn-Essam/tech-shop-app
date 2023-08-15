@@ -35,7 +35,7 @@ const Catalog: React.FC<CatalogProps> = async ({
   // Get products data by category
   const prods: ProductType[] = await catalogServices.getCategory(catfilters);
   const sortedProds =
-    searchBarFilters.length > 0
+    searchBarFilters?.length > 0
       ? sortProducts(
           prods.filter((prod) =>
             prod.name.toLowerCase().includes(searchBarFilters)

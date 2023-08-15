@@ -18,7 +18,7 @@ const SearchBar: React.FC = () => {
       <input
         type="text"
         placeholder="Search products"
-        className="border p-2 rounded-l w-full border border-slate-400 shadow-md"
+        className="border p-2 rounded-l w-full  border-slate-400 shadow-md"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
