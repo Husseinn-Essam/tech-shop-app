@@ -4,8 +4,6 @@ import { NextResponse } from "next/server";
 import { hash } from "bcrypt";
 
 export const POST = async (req: any) => {
-  console.log("yo");
-
   const { username, email, password } = await req.json();
   await connect();
 
