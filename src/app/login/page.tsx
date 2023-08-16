@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { getProviders, signIn, useSession } from "next-auth/react";
-import { data } from "autoprefixer";
 const RegisterPage: React.FC = () => {
   const [formData, setFormData] = useState({
     username: "",

@@ -25,7 +25,7 @@ const handler = NextAuth({
             );
 
             if (isPasswordCorrect) {
-              return { name: user.username, email: user.email };
+              return user;
             } else {
               throw new Error("Wrong Credentials!");
             }
@@ -44,10 +44,16 @@ const handler = NextAuth({
       clientSecret: process.env.GOOGLE_SECRET,
     }),
   ],
+  pages: {
+    signIn: "/login",
+    newUser: "/register",
+  },
   callbacks: {
+    async jwt({ token, user }) {
+      return { ...token, ...user };
+    },
     async session({ session, token, user }) {
-      session.accessToken = token.accessToken;
-      session.user.id = token.id;
+      session.user = token;
       return session;
     },
   },
