@@ -4,8 +4,6 @@ import Product from "@/models/Product";
 import { NextRequest, NextResponse } from "next/server";
 import { verifyJwt } from "@/utils/helpers";
 import User from "@/models/User";
-import { headers } from "next/headers";
-import { access } from "fs";
 
 export const GET = async () => {
   try {
@@ -18,7 +16,7 @@ export const GET = async () => {
   }
 };
 
-export const POST = async (req: any) => {
+export const PUT = async (req: any) => {
   console.log("i get here ");
   const data = await req.json();
   console.log(data);
@@ -26,21 +24,18 @@ export const POST = async (req: any) => {
   const { name, product, token } = data;
   console.log(token);
   try {
-    if (token && verifyJwt(token))
-      return new Response(" Ok You Have Logged In!");
+    if (token && verifyJwt(token)) {
+      const ourUser = await User.findOne({ username: name });
+
+      const updatedCart = [...ourUser.cart, product];
+      const updatedUser = await User.findByIdAndUpdate(
+        ourUser._id,
+        { cart: updatedCart },
+        { new: true } // Return the updated document
+      );
+      return new Response(updatedUser);
+    }
   } catch (err) {
     console.log(err);
   }
-  //   try {
-  //     const ourUser = await User.findOne({ username: user.username });
-  //     if (ourUser) {
-  //       console.log("hi");
-  //       console.log(ourUser);
-  //     }
-  //     return new NextResponse("Hello world?", { status: 200 });
-  //   } catch (err) {
-  //     console.log(err);
-
-  //     return new NextResponse(err as string, { status: 500 });
-  //   }
 };

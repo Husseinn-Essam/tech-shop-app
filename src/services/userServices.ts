@@ -8,7 +8,7 @@ const addProductToCart = async (name, product, token) => {
   console.log("token ", token);
 
   const options = {
-    method: "POST",
+    method: "PUT",
     // headers: headers,
     body: JSON.stringify({ name, product, token }),
   };
