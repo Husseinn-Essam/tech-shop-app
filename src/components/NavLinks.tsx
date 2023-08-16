@@ -7,6 +7,8 @@ const NavLinks: React.FC = () => {
   const pathname = usePathname();
   const [activeButton, setActiveButton] = useState(pathname);
 
+  console.log(activeButton, pathname);
+
   const handleButtonClick = (buttonName: string) => {
     setActiveButton(buttonName);
   };

@@ -1,6 +1,7 @@
 import React from "react";
 import { ComputerDesktopIcon } from "@heroicons/react/20/solid";
 import NavLinks from "./NavLinks";
+import UserStatus from "./UserStatus";
 const Navbar: React.FC = () => {
   return (
     <header className="flex flex-row items-center justify-between p-2 w-full bg-slate-800 text-white h-16">
@@ -8,6 +9,7 @@ const Navbar: React.FC = () => {
         <ComputerDesktopIcon className="h-8 w-8" /> Tech Store
       </h1>
       <NavLinks />
+      <UserStatus />
     </header>
   );
 };

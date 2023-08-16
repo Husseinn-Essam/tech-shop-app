@@ -1,14 +1,16 @@
 "use client";
 import React, { useState } from "react";
 import { getProviders, signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 const RegisterPage: React.FC = () => {
+  const [err, setErr] = useState("");
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
   const { data: session } = useSession();
   console.log(session);
-
+  const router = useRouter();
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({
@@ -20,12 +22,17 @@ const RegisterPage: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
-      signIn("credentials", {
+      const sign = await signIn("credentials", {
         username: formData.username,
         password: formData.password,
+        callbackUrl: "/store?cat=",
+        redirect: false,
       });
-      //res.status === 201 &&
-      //router.push("/store/login?success=Account has been created");
+      console.log(sign.error);
+      if (sign.ok) {
+        router.back();
+      }
+      setErr(sign.error);
     } catch (e) {
       console.log(e);
     }
@@ -66,6 +73,7 @@ const RegisterPage: React.FC = () => {
           >
             Log In
           </button>
+          <p className="mt-2 text-red-600 text-bold">{err ? err : ""}</p>
         </form>
         <div className="my-4 w-full flex items-center before:mt-0.5  before:flex-1 before:border-t before:border-slate-500 after:mt-0.5 after:flex-1 after:border-t after:border-slate-500">
           <p className="mx-4 mb-0 text-center font-semibold dark:text-slate-500">
