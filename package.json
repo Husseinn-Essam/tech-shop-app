@@ -20,6 +20,7 @@
     "bcryptjs": "^2.4.3",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.13",
+    "framer-motion": "^10.16.0",
     "imagekitio-react": "^2.0.0",
     "jsonwebtoken": "^9.0.1",
     "mongoose": "^6.11.5",
