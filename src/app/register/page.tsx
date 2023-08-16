@@ -1,7 +1,10 @@
 "use client";
 import React, { useState } from "react";
-
+import { getProviders, signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 const RegisterPage: React.FC = () => {
+  const [err, setErr] = useState("");
+  const router = useRouter();
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -30,8 +33,21 @@ const RegisterPage: React.FC = () => {
           password: formData.password,
         }),
       });
-      //res.status === 201 &&
-      //router.push("/store/login?success=Account has been created");
+      try {
+        const sign = await signIn("credentials", {
+          username: formData.username,
+          password: formData.password,
+          callbackUrl: "/store?cat=",
+          redirect: false,
+        });
+        console.log(sign.error);
+        if (sign.ok) {
+          router.back();
+        }
+        setErr(sign.error);
+      } catch (e) {
+        console.log(e);
+      }
     } catch (e) {
       console.log(e);
     }

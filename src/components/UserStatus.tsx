@@ -5,6 +5,8 @@ import { ShoppingCartIcon } from "@heroicons/react/20/solid";
 import { redirect, useRouter } from "next/navigation";
 const UserStatus: React.FC = () => {
   const { data: session, status } = useSession();
+  console.log(session);
+
   const router = useRouter();
   return (
     <>

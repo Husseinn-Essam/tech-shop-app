@@ -5,7 +5,7 @@ interface SignOption {
 }
 
 const DEFAULT_SIGN_OPTION: SignOption = {
-  expiresIn: "1h",
+  expiresIn: "5h",
 };
 
 export function signJwtAccessToken(
@@ -13,7 +13,6 @@ export function signJwtAccessToken(
   options: SignOption = DEFAULT_SIGN_OPTION
 ) {
   const secretKey = process.env.SECRET_KEY;
-  console.log(secretKey);
   const token = jwt.sign(payload, secretKey, options);
   return token;
 }

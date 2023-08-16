@@ -7,7 +7,7 @@ const getAllProds = async () => {
 
 const getCategory = async (selectedCategories: string | undefined) => {
   try {
-    console.log(selectedCategories);
+    //console.log(selectedCategories);
 
     const response = await fetch(`${baseurl}/${selectedCategories}`, {
       cache: "force-cache",
@@ -17,7 +17,7 @@ const getCategory = async (selectedCategories: string | undefined) => {
       throw new Error("Request failed");
     }
     const data = await response.json();
-    console.log(data);
+    //console.log(data);
 
     return data;
   } catch (error) {
