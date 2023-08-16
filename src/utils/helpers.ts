@@ -1,4 +1,3 @@
-import { error, log } from "console";
 import jwt, { JwtPayload } from "jsonwebtoken";
 
 interface SignOption {

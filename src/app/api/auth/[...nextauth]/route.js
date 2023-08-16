@@ -4,6 +4,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import connect from "@/utils/db";
 import User from "@/models/User";
 import bcrypt from "bcryptjs";
+import { signJwtAccessToken } from "@/utils/helpers";
 const handler = NextAuth({
   providers: [
     CredentialsProvider({
@@ -25,7 +26,10 @@ const handler = NextAuth({
             );
 
             if (isPasswordCorrect) {
-              return user;
+              const accessToken = signJwtAccessToken({
+                payload: user.username,
+              });
+              return { user, accessToken };
             } else {
               throw new Error("Wrong Credentials!");
             }
