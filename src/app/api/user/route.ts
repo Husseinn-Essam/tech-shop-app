@@ -5,13 +5,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { verifyJwt } from "@/utils/helpers";
 import User from "@/models/User";
 
-export const GET = async (req) => {
+export const GET = async () => {
   try {
     await connect();
-    const data = await req.json();
-    console.log(data);
 
-    const users = await User.findOne({ username: data });
+    const users = await User.findOne({});
     return new NextResponse(JSON.stringify(users), { status: 200 });
   } catch (err) {
     console.log(err);
@@ -23,7 +21,6 @@ export const PUT = async (req: any) => {
   console.log("i get here ");
   const data = await req.json();
   const accessToken = req.headers.get("Authorization");
-  console.log(accessToken);
 
   const { name, product } = data;
   console.log(name, product);
