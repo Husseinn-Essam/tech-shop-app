@@ -4,6 +4,9 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import { ShoppingCartIcon } from "@heroicons/react/20/solid";
 import { redirect, useRouter } from "next/navigation";
 import ProductType from "@/types/ProductType";
+import { useQuery } from "@tanstack/react-query";
+import { getUsers, getUser } from "@/services/userServices";
+import CartProductNumber from "./CartProductNumber";
 interface userData {
   role: string;
   _id: string;
@@ -39,7 +42,7 @@ const UserStatus: React.FC = () => {
           <button className="flex flex-row relative mr-4 gap-1">
             <ShoppingCartIcon className="h-8 w-8" />
             <span className=" absolute top-3 bg-red-500 text-white w-5 h-4 flex items-center justify-center rounded-full text-xs">
-              <div>{session.user?._doc.cart.length}</div>
+              {session.user ? <CartProductNumber /> : ""}
             </span>
             My Cart
           </button>

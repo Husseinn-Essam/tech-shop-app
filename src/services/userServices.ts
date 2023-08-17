@@ -1,10 +1,22 @@
 const baseurl: string = "http://localhost:3000/api/user";
 
-export const getUser = async (user) => {
+export const getUsers = async () => {
   try {
     const response = await fetch(baseurl, {
       method: "GET",
-      body: JSON.stringify({ user }),
+    });
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export const getUser = async (id: string | undefined) => {
+  try {
+    if (!id) return;
+    const response = await fetch(`${baseurl}/${id}`, {
+      method: "GET",
     });
     const data = await response.json();
     return data;
