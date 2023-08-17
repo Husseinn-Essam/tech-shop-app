@@ -15,7 +15,7 @@ const CartProductNumber = () => {
     suspense: true,
     staleTime: 5 * 1000,
   });
-  console.log(user.data);
+
   return <div>{user?.data.cart.length}</div>;
 };
 

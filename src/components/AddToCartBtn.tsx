@@ -11,13 +11,32 @@ interface Props {
   rating: number;
   images: string[];
 }
-
+interface User {
+  name: string;
+  cart: Props[];
+}
 const AddToCartBtn: React.FC<Props> = ({ name, price, rating, images }) => {
   const { data: session } = useSession();
   const queryClient = useQueryClient();
 
   const cartMutation = useMutation<void, Error, [string, Props, string]>({
     mutationFn: (variables) => addProductToCart(...variables),
+    // onMutate: () => {
+    //   queryClient.setQueryData(["user"], (prevData: User) => {
+    //     if (prevData) {
+    //       return {
+    //         ...prevData,
+    //         cart: prevData.cart.push({
+    //           name: name,
+    //           price: price,
+    //           rating: rating,
+    //           images: images,
+    //         }),
+    //       };
+    //     }
+    //     return prevData;
+    //   });
+    // },
     onSuccess: () => {
       queryClient.invalidateQueries(["user"]);
     },

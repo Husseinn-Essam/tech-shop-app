@@ -9,7 +9,6 @@ const RegisterPage: React.FC = () => {
     password: "",
   });
   const { data: session } = useSession();
-  console.log(session);
   const router = useRouter();
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -28,7 +27,6 @@ const RegisterPage: React.FC = () => {
         callbackUrl: "/store?cat=",
         redirect: false,
       });
-      console.log(sign.error);
       if (sign.ok) {
         router.back();
       }

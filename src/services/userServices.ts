@@ -30,9 +30,6 @@ export const addProductToCart = async (name, product, token) => {
     Authorization: token,
     "Content-Type": "application/json",
   });
-  console.log(product);
-  console.log(name);
-
   const options = {
     method: "PUT",
     headers: headers,
