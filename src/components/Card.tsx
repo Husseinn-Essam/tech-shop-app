@@ -33,7 +33,7 @@ const Card: React.FC<CardProps> = ({ name, price, stock, rating, images }) => {
         Rating:{rating} <StarIcon className="w-5 h-5 pb-1" />
       </div>
 
-      <AddToCartBtn />
+      <AddToCartBtn name={name} price={price} rating={rating} images={images} />
     </div>
   );
 };

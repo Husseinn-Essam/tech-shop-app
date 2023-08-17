@@ -15,20 +15,25 @@ const handler = NextAuth({
         await connect();
 
         try {
-          const user = await User.findOne({
+          const signedUser = await User.findOne({
             username: credentials.username,
           });
 
-          if (user) {
+          if (signedUser) {
             const isPasswordCorrect = await bcrypt.compare(
               credentials.password,
-              user.password
+              signedUser.password
             );
 
             if (isPasswordCorrect) {
               const accessToken = signJwtAccessToken({
-                payload: user.username,
+                payload: signedUser.username,
               });
+              const user = {
+                ...signedUser,
+                name: signedUser.username,
+              };
+              console.log({ user, accessToken });
               return { user, accessToken };
             } else {
               throw new Error("Wrong Credentials!");
@@ -54,11 +59,12 @@ const handler = NextAuth({
   },
   callbacks: {
     async jwt({ token, user }) {
+      console.log(user);
       return { ...token, ...user };
     },
     async session({ session, token, user }) {
       session.user = token;
-      return session;
+      return session.user;
     },
   },
 });
