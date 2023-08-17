@@ -16,7 +16,7 @@ const CartPage: React.FC<CartProps> = () => {
   const { data: session } = useSession();
 
   return (
-    <div className="cart mt-4">
+    <div className="cart mt-4 p-3">
       <h2 className="text-xl font-semibold mb-2">Your Cart</h2>
       <table className="w-full border-collapse">
         <thead>
@@ -25,7 +25,7 @@ const CartPage: React.FC<CartProps> = () => {
             <th className="py-2 px-4 text-left">Price</th>
           </tr>
         </thead>
-        <Cart />
+        {session ? <Cart /> : ""}
       </table>
     </div>
   );

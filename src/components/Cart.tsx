@@ -23,7 +23,7 @@ const Cart: React.FC = () => {
       {user.data.cart?.map((item) => (
         <tr key={item._id} className="border-b">
           <td className="py-2 px-4">{item.name}</td>
-          <td className="py-2 px-4">${item.price.toFixed(2)}</td>
+          <td className="py-2 px-4">EGP{item.price.toFixed(2)}</td>
         </tr>
       ))}
     </tbody>

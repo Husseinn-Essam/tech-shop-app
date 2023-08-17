@@ -6,6 +6,9 @@
   padding: 0;
   margin: 0;
 } */
+body {
+  height: 100vh;
+}
 @media (max-width: 946px) {
   .custom-filters {
     display: flex;
@@ -38,7 +41,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid #f00;
+  border: 1px solid #070707;
   border-radius: 0.5rem;
   padding: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
