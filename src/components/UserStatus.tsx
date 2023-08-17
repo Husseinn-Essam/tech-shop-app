@@ -39,7 +39,10 @@ const UserStatus: React.FC = () => {
       ) : (
         <div className="flex flex-row gap-4 items-center text-lg">
           <div>Hello, {session.user?.name} ! </div>
-          <button className="flex flex-row relative mr-4 gap-1">
+          <button
+            onClick={() => router.push("/cart")}
+            className="flex flex-row relative mr-4 gap-1"
+          >
             <ShoppingCartIcon className="h-8 w-8" />
             <span className=" absolute top-3 bg-red-500 text-white w-5 h-4 flex items-center justify-center rounded-full text-xs">
               {session.user ? <CartProductNumber /> : ""}

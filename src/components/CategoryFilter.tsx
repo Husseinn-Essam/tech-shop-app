@@ -36,12 +36,9 @@ const CategoryFilter: React.FC = () => {
         Select Categories
       </button>
       {isOpen && (
-        <div className="absolute mt-2 bg-white border rounded shadow-md">
+        <div className="z-10 absolute mt-2 bg-white border rounded shadow-md">
           {categories.map((category) => (
-            <label
-              key={category}
-              className=" px-4 py-2 flex flex-row gap-1"
-            >
+            <label key={category} className=" px-4 py-2 flex flex-row gap-1">
               <input
                 type="checkbox"
                 checked={selectedCategories.includes(category)}
