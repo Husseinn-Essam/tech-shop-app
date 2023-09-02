@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { getProviders, signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import LoadingScreen from "@/components/LoadingScreen";
 const RegisterPage: React.FC = () => {
   const [err, setErr] = useState("");
   const [formData, setFormData] = useState({
@@ -27,8 +28,12 @@ const RegisterPage: React.FC = () => {
         callbackUrl: "/store?cat=",
         redirect: false,
       });
+
+      sign.status;
       if (sign.ok) {
         router.back();
+      } else {
+        return <LoadingScreen />;
       }
       setErr(sign.error);
     } catch (e) {
