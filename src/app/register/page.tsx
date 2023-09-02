@@ -101,11 +101,11 @@ const RegisterPage: React.FC = () => {
             Register
           </button>
         </form>
-        <div className="my-4 w-full flex items-center before:mt-0.5  before:flex-1 before:border-t before:border-slate-500 after:mt-0.5 after:flex-1 after:border-t after:border-slate-500">
+        {/* <div className="my-4 w-full flex items-center before:mt-0.5  before:flex-1 before:border-t before:border-slate-500 after:mt-0.5 after:flex-1 after:border-t after:border-slate-500">
           <p className="mx-4 mb-0 text-center font-semibold dark:text-slate-500">
             Or
           </p>
-        </div>{" "}
+        </div>{" "} */}
       </div>
     </div>
   );

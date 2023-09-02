@@ -4,7 +4,7 @@ import { ShoppingCartIcon } from "@heroicons/react/20/solid";
 import { addProductToCart } from "@/services/userServices";
 import { useSession } from "next-auth/react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-
+import { useRouter } from "next/navigation";
 interface Props {
   name: string;
   price: number;
@@ -18,7 +18,7 @@ interface User {
 const AddToCartBtn: React.FC<Props> = ({ name, price, rating, images }) => {
   const { data: session } = useSession();
   const queryClient = useQueryClient();
-
+  const router = useRouter();
   const cartMutation = useMutation<void, Error, [string, Props, string]>({
     mutationFn: (variables) => addProductToCart(...variables),
     // onMutate: () => {
@@ -49,6 +49,8 @@ const AddToCartBtn: React.FC<Props> = ({ name, price, rating, images }) => {
         { name, price, rating, images },
         session.accessToken,
       ]);
+    } else {
+      router.push("/login");
     }
   };
 

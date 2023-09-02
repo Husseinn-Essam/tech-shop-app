@@ -17,7 +17,6 @@ const Cart: React.FC = () => {
     suspense: true,
     staleTime: 5 * 1000,
   });
-  console.log(user.data);
   return (
     <tbody>
       {user.data.cart?.map((item) => (
