@@ -34,6 +34,34 @@ body {
     align-items: center;
   }
 }
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ham-menu {
+  display: flex;
+  z-index: 1;
+}
+.ham-menu-icon {
+  display: none;
+}
+
+@media (max-width: 877px) {
+  .nav {
+    display: none;
+  }
+  .ham-menu-icon {
+    display: flex;
+    z-index: 2;
+  }
+  .ham-menu {
+    display: none;
+  }
+}
 
 .card-container {
   position: relative;

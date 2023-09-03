@@ -7,6 +7,7 @@ import ProductType from "@/types/ProductType";
 import { useQuery } from "@tanstack/react-query";
 import { getUsers, getUser } from "@/services/userServices";
 import CartProductNumber from "./CartProductNumber";
+import LoadingScreen from "./LoadingScreen";
 interface userData {
   role: string;
   _id: string;
@@ -17,8 +18,15 @@ interface userData {
 }
 const UserStatus: React.FC = () => {
   const { data: session, status } = useSession();
-
+  // Conditionally render the loading screen
   const router = useRouter();
+  if (status === "loading") {
+    return (
+      <>
+        <p className="text-white">Loading</p>
+      </>
+    );
+  }
   return (
     <>
       {!session ? (

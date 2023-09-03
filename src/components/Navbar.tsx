@@ -1,5 +1,6 @@
+"use client";
 import React from "react";
-import { ComputerDesktopIcon } from "@heroicons/react/20/solid";
+import { ComputerDesktopIcon, Bars4Icon } from "@heroicons/react/20/solid";
 import NavLinks from "./NavLinks";
 import UserStatus from "./UserStatus";
 const Navbar: React.FC = () => {
@@ -8,8 +9,13 @@ const Navbar: React.FC = () => {
       <h1 className="text-3xl font-bold flex items-center gap-2">
         <ComputerDesktopIcon className="h-8 w-8" /> Tech Store
       </h1>
-      <NavLinks />
-      <UserStatus />
+      <button className="ham-menu-icon">
+        <Bars4Icon className="h-8 w-8" />
+      </button>
+      <section className="nav ham-menu">
+        <NavLinks />
+        <UserStatus />
+      </section>
     </header>
   );
 };

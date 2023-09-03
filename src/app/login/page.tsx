@@ -1,16 +1,19 @@
 "use client";
 import React, { useState } from "react";
-import { getProviders, signIn, useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import LoadingScreen from "@/components/LoadingScreen";
+
 const RegisterPage: React.FC = () => {
   const [err, setErr] = useState("");
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
-  const { data: session } = useSession();
+  const [Loading, setLoading] = useState(false);
+  const { data: session, status } = useSession();
   const router = useRouter();
+
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({
@@ -22,6 +25,7 @@ const RegisterPage: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
+      setLoading(true);
       const sign = await signIn("credentials", {
         username: formData.username,
         password: formData.password,
@@ -29,11 +33,9 @@ const RegisterPage: React.FC = () => {
         redirect: false,
       });
 
-      sign.status;
       if (sign.ok) {
+        setLoading(false);
         router.back();
-      } else {
-        return <LoadingScreen />;
       }
       setErr(sign.error);
     } catch (e) {
@@ -41,6 +43,10 @@ const RegisterPage: React.FC = () => {
     }
   };
 
+  // Render the loading when authing
+  if (Loading === true) {
+    return <LoadingScreen />;
+  }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="flex flex-col items-center bg-white p-8 rounded-lg shadow-md w-full max-w-sm">

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { getProviders, signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import LoadingScreen from "@/components/LoadingScreen";
 const RegisterPage: React.FC = () => {
   const [err, setErr] = useState("");
   const router = useRouter();
@@ -10,6 +11,7 @@ const RegisterPage: React.FC = () => {
     email: "",
     password: "",
   });
+  const [Loading, setLoading] = useState(false);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -22,6 +24,7 @@ const RegisterPage: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
+      setLoading(true);
       const res = await fetch("/api/auth/register", {
         method: "POST",
         headers: {
@@ -42,6 +45,7 @@ const RegisterPage: React.FC = () => {
         });
         console.log(sign.error);
         if (sign.ok) {
+          setLoading(false);
           router.back();
         }
         setErr(sign.error);
@@ -52,7 +56,9 @@ const RegisterPage: React.FC = () => {
       console.log(e);
     }
   };
-
+  if (Loading === true) {
+    return <LoadingScreen />;
+  }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="flex flex-col items-center bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
