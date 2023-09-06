@@ -1,9 +1,8 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import connect from "@/utils/db";
 import Product from "@/models/Product";
 import { NextResponse } from "next/server";
 
-export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
+export const GET = async (req: any, res: any) => {
   try {
     await connect();
     const products = await Product.find();
@@ -13,7 +12,7 @@ export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 };
 
-export const POST = async (req: any, res: NextApiResponse) => {
+export const POST = async (req: any, res: any) => {
   try {
     const body = await req.json();
     const newProd = new Product(body);
