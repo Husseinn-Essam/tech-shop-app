@@ -35,8 +35,9 @@ const RegisterPage: React.FC = () => {
 
       if (sign.ok) {
         setLoading(false);
+        if (status == "unauthenticated") setErr(sign.error);
       }
-      setErr(sign.error);
+      if (status == "authenticated") router.push("./");
     } catch (e) {
       console.log(e);
     }
