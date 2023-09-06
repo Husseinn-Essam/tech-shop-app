@@ -65,7 +65,7 @@ const UserStatus: React.FC<navLinkProps> = ({ mobileLinks }) => {
               <button
                 className="text-slate-800 bg-white p-2 rounded font-sans font-bold"
                 onClick={() => {
-                  signOut({ callbackUrl: "http://localhost:3000/" });
+                  signOut({ callbackUrl: "/" });
                 }}
               >
                 Sign Out

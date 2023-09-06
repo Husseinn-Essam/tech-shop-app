@@ -1,4 +1,4 @@
-const baseurl: string = "http://localhost:3000/api/user";
+const baseurl: string = "./api/user";
 
 export const getUsers = async () => {
   try {
