@@ -35,7 +35,6 @@ const RegisterPage: React.FC = () => {
 
       if (sign.ok) {
         setLoading(false);
-        router.back();
       }
       setErr(sign.error);
     } catch (e) {
