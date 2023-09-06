@@ -8,7 +8,7 @@ const SearchBar: React.FC = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const newpath = updateSearchParams("search", searchTerm);
+    const newpath = updateSearchParams("search", searchTerm.toLowerCase());
     router.push(newpath);
   }, [searchTerm, router]);
 

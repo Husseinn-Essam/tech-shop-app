@@ -1,11 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* * {
+* {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-} */
+}
 html,
 body {
   margin: 0;
@@ -14,7 +14,6 @@ body {
 
 body {
   height: 100vh;
-  width: 100vw;
 }
 @media (max-width: 946px) {
   .custom-filters {
