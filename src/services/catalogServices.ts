@@ -1,5 +1,4 @@
-const baseurl: string =
-  "tech-shop-8ha63drbh-husseinessam294-gmailcom.vercel.app/api/products";
+const baseurl: string = "/api/products";
 
 const getAllProds = async () => {
   const res = await fetch(`${baseurl}`);
