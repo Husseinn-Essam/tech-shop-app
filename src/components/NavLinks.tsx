@@ -19,7 +19,7 @@ const NavLinks: React.FC<navLinkProps> = ({ mobileLinks }) => {
   } else {
     return (
       <div>
-        <nav className="flex flex-col items-center gap-6 text-lg ">
+        <nav className="flex flex-col items-center ml-4 gap-6 text-lg ">
           <Link href="/">Home</Link>
           <Link href="/store?cat=">Store</Link>
         </nav>
