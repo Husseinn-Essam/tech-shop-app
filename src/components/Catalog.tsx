@@ -33,16 +33,16 @@ const Catalog: React.FC<CatalogProps> = async ({
   //const prods: ProductType[] = await catalogServices.getCategory(["Laptops"]);
 
   // Get products data by category
-  const prods: ProductType[] = await catalogServices.getCategory(catfilters);
-  const sortedProds =
-    searchBarFilters?.length > 0
-      ? sortProducts(
-          prods.filter((prod) =>
-            prod.name.toLowerCase().includes(searchBarFilters)
-          ),
-          sortFilters
-        )
-      : sortProducts(prods, sortFilters);
+  const sortedProds: ProductType[] = await catalogServices.getAllProds();
+  // const sortedProds =
+  //   searchBarFilters?.length > 0
+  //     ? sortProducts(
+  //         prods.filter((prod) =>
+  //           prod.name.toLowerCase().includes(searchBarFilters)
+  //         ),
+  //         sortFilters
+  //       )
+  //     : sortProducts(prods, sortFilters);
 
   return (
     <>
