@@ -12,7 +12,7 @@ interface CartProps {
   cartItems: CartItem[];
 }
 
-const CartPage: React.FC<CartProps> = () => {
+const CartPage: React.FC<any> = () => {
   const { data: session } = useSession();
 
   return (
