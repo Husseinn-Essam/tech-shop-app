@@ -1,4 +1,4 @@
-const baseurl: string = "./api/user";
+const baseurl: string = "/api/user";
 
 export const getUsers = async () => {
   try {

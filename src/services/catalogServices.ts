@@ -1,4 +1,5 @@
-const baseurl: string = "./api/products";
+const baseurl: string =
+  "tech-shop-8ha63drbh-husseinessam294-gmailcom.vercel.app/api/products";
 
 const getAllProds = async () => {
   const res = await fetch(`${baseurl}`);
@@ -26,4 +27,5 @@ const getCategory = async (selectedCategories: string | undefined) => {
   }
 };
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default { getAllProds, getCategory };
