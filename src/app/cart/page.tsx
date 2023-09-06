@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useSession } from "next-auth/react";
-import Cart from "@/components/cart";
+import Cart from "@/components/Cart";
 interface CartItem {
   _id: string;
   name: string;
