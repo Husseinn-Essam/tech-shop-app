@@ -1,4 +1,4 @@
-// // Protecting pages
-// export { default } from "next-auth/middleware";
+// Protecting pages
+export { default } from "next-auth/middleware";
 
-// export const config = { matcher: ["/cart"] };
+export const config = { matcher: ["/cart"] };
