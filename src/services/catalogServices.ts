@@ -1,8 +1,13 @@
-const baseurl: string = "/api/products";
+const baseurl: string =
+  "https://tech-shop-l21wgoapa-husseinessam294-gmailcom.vercel.app/api/products";
 
 const getAllProds = async () => {
-  const res = await fetch(`${baseurl}`);
-  return res.json();
+  try {
+    const res = await fetch(`${baseurl}`);
+    return res.json();
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 const getCategory = async (selectedCategories: string | undefined) => {
