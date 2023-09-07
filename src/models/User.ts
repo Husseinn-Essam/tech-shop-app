@@ -24,6 +24,7 @@ const userSchema = new mongoose.Schema({
       stock: Number,
       rating: Number,
       images: [String],
+      quantity: Number,
     },
   ],
   role: {

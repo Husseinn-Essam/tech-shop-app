@@ -4,6 +4,7 @@ import { getUsers, getUser } from "@/services/userServices";
 import { useSession } from "next-auth/react";
 const CartProductNumber = () => {
   const { data: session } = useSession();
+  let numberOfProducts = 0;
   const user = useQuery({
     queryKey: ["user"],
     queryFn: () => {
@@ -15,8 +16,10 @@ const CartProductNumber = () => {
     suspense: true,
     staleTime: 5 * 1000,
   });
-
-  return <div>{user?.data.cart.length}</div>;
+  user?.data?.cart.forEach((prod) => {
+    numberOfProducts += prod.quantity;
+  });
+  return <div>{numberOfProducts}</div>;
 };
 
 export default CartProductNumber;

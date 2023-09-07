@@ -25,7 +25,11 @@ export const getUser = async (id: string | undefined) => {
   }
 };
 
-export const addProductToCart = async (name, product, token) => {
+export const addProductToCart = async (
+  name: string,
+  product,
+  token: string
+) => {
   const headers = new Headers({
     Authorization: token,
     "Content-Type": "application/json",

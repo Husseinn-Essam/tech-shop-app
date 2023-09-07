@@ -10,6 +10,7 @@ interface Props {
   price: number;
   rating: number;
   images: string[];
+  quantity: Number;
 }
 interface User {
   name: string;
@@ -46,7 +47,7 @@ const AddToCartBtn: React.FC<Props> = ({ name, price, rating, images }) => {
     if (session?.user?.name && session?.accessToken) {
       cartMutation.mutate([
         session.user.name,
-        { name, price, rating, images },
+        { name, price, rating, images, quantity: 1 },
         session.accessToken,
       ]);
     } else {
