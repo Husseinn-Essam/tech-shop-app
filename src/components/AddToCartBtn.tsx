@@ -10,7 +10,6 @@ interface Props {
   price: number;
   rating: number;
   images: string[];
-  quantity: Number;
 }
 interface User {
   name: string;

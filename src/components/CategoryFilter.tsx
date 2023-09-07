@@ -30,13 +30,13 @@ const CategoryFilter: React.FC = () => {
   return (
     <div className="relative">
       <button
-        className="py-2 px-4 border rounded text-gray-700"
+        className="py-2 px-4 border rounded text-gray-700 bg-white"
         onClick={handleToggleDropdown}
       >
         Select Categories
       </button>
       {isOpen && (
-        <div className="z-10 absolute mt-2 bg-white border rounded shadow-md">
+        <div className="z-10 absolute  bg-white border rounded shadow-md">
           {categories.map((category) => (
             <label key={category} className=" px-4 py-2 flex flex-row gap-1">
               <input

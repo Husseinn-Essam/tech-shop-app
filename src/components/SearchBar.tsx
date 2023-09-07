@@ -14,11 +14,11 @@ const SearchBar: React.FC = () => {
 
   return (
     <div className="custom-search flex items-center w-1/2 ml-6 ">
-      <MagnifyingGlassIcon className="h-6 w-6" />
+      <MagnifyingGlassIcon className="h-6 w-6 text-white" />
       <input
         type="text"
         placeholder="Search products"
-        className="border p-2 rounded-l w-full  border-slate-400 shadow-md"
+        className="ml-2 border p-2 rounded-xl w-full  border-slate-400 shadow-md"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />

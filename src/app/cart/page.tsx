@@ -17,12 +17,12 @@ const CartPage: React.FC<any> = () => {
 
   return (
     <div className="cart mt-4 p-3">
-      <h2 className="text-xl font-semibold mb-2">Your Cart</h2>
-      <table className="w-full border-collapse">
+      <h2 className="text-xl font-semibold mb-2 text-white">Your Cart</h2>
+      <table className="w-full border-collapse bg-gray-100">
         <thead>
           <tr className="bg-gray-100">
             <th className="py-2 px-4 text-left">Product Name</th>
-            <th className="py-2 px-4 text-left">Quantity</th>
+            <th className="py-2 px-4 text-center">Quantity</th>
             <th className="py-2 px-4 text-left">Price</th>
           </tr>
         </thead>

@@ -15,7 +15,7 @@ const Card: React.FC<CardProps> = ({ name, price, stock, rating, images }) => {
   const urlEndpoint = `https://ik.imagekit.io/${process.env.NEXT_PUBLIC_IMAGEKITID}`;
 
   return (
-    <div className="card-container relative group">
+    <div className="card-container bg-white relative group">
       <IKContext urlEndpoint={urlEndpoint}>
         <IKImage
           path={images[0]}

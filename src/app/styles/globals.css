@@ -14,6 +14,7 @@ body {
 
 body {
   height: 100vh;
+  background-color: #0f172a;
 }
 @media (max-width: 946px) {
   .custom-filters {

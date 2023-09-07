@@ -13,13 +13,14 @@ const Navbar: React.FC = () => {
       <h1 className="text-3xl font-bold flex items-center gap-2">
         <ComputerDesktopIcon className="h-8 w-8" /> Tech Store
       </h1>
-      <button onClick={() => setMobile(!mobileLinks)} className="ham-menu-icon">
+      {/* <button onClick={() => setMobile(!mobileLinks)} className="ham-menu-icon">
         <Bars4Icon className="h-8 w-8" />
-      </button>
-      <section className={` ${mobileLinks ? "ham-menu showMenu" : "nav"}`}>
-        <NavLinks mobileLinks={mobileLinks} />
-        <UserStatus mobileLinks={mobileLinks} />
-      </section>
+      </button> */}
+      <NavLinks mobileLinks={mobileLinks} />
+      <UserStatus mobileLinks={mobileLinks} />
+      {/* <section
+        className={` ${mobileLinks ? "ham-menu showMenu" : "nav"}`}
+      ></section> */}
     </header>
   );
 };

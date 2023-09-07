@@ -8,8 +8,11 @@ const Store = async ({
   searchParams: { [key: string]: string };
 }) => {
   return (
-    <>
-      <div className="custom-filters flex flex-row mt-6 items-center justify-between">
+    <div className="flex flex-col bg-gray-900 mt-4 ">
+      {/* <h1 className="text-4xl mx-auto mb-5 font-sans text-white align-center">
+        High Quality Products
+      </h1> */}
+      <div className="custom-filters flex flex-row   items-center justify-between ">
         <SearchBar />
         <div className="filter-col custom-filter-btns flex flex-row gap-4 mr-2">
           <SortFilter />
@@ -21,7 +24,7 @@ const Store = async ({
         sortFilters={searchParams?.sort}
         searchBarFilters={searchParams.search}
       />
-    </>
+    </div>
   );
 };
 
