@@ -12,6 +12,25 @@ export const getUsers = async () => {
   }
 };
 
+export const changeItemQuantity = async (
+  mode: string,
+  productName: string,
+  id: string
+) => {
+  if (!id) return;
+  const options = {
+    method: "PUT",
+
+    body: JSON.stringify({ mode, productName }),
+  };
+  const response = await fetch(`${baseurl}/${id}`, options);
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+
+  const data = await response.json();
+};
+
 export const getUser = async (id: string | undefined) => {
   try {
     if (!id) return;
@@ -48,7 +67,6 @@ export const addProductToCart = async (
     }
 
     const data = await response.json();
-    console.log(data);
   } catch (error) {
     //console.error("There was a problem with the fetch operation:", error);
   }

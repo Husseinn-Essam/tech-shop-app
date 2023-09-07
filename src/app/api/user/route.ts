@@ -25,21 +25,16 @@ export const PUT = async (req: any) => {
 
       const ourUser = await User.findOne({ username: name });
 
-      // Check if the product is already in the cart
       const existingProduct = ourUser.cart.find(
         (prod) => prod.name === product.name
       );
 
       if (existingProduct) {
-        // If it exists, increment the quantity
-
         existingProduct.quantity++;
       } else {
-        // If it doesn't exist, add it to the cart with quantity 1
         ourUser.cart.push(product);
       }
 
-      // Update the user's cart in the database
       const updatedUser = await User.findByIdAndUpdate(ourUser._id, {
         cart: ourUser.cart,
       });
