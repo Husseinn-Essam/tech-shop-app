@@ -22,6 +22,7 @@ const CartPage: React.FC<any> = () => {
         <thead>
           <tr className="bg-gray-100">
             <th className="py-2 px-4 text-left">Product Name</th>
+            <th className="py-2 px-4 text-left">Quantity</th>
             <th className="py-2 px-4 text-left">Price</th>
           </tr>
         </thead>

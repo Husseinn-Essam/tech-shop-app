@@ -11,7 +11,6 @@ export const GET = async () => {
     const users = await User.findOne({});
     return new NextResponse(JSON.stringify(users), { status: 200 });
   } catch (err) {
-    console.log(err);
     return new NextResponse(err as string, { status: 500 });
   }
 };
@@ -23,7 +22,6 @@ export const PUT = async (req: any) => {
   try {
     if (accessToken && verifyJwt(accessToken)) {
       const { name, product } = data;
-      console.log(product);
 
       const ourUser = await User.findOne({ username: name });
 
@@ -34,24 +32,17 @@ export const PUT = async (req: any) => {
 
       if (existingProduct) {
         // If it exists, increment the quantity
-        console.log("exists");
 
         existingProduct.quantity++;
-        console.log(existingProduct.toJSON());
       } else {
-        console.log("doesnt exist");
         // If it doesn't exist, add it to the cart with quantity 1
         ourUser.cart.push(product);
-        console.log(product);
-        console.log(ourUser.toJSON());
       }
 
       // Update the user's cart in the database
       const updatedUser = await User.findByIdAndUpdate(ourUser._id, {
         cart: ourUser.cart,
       });
-      console.log("ourUser:", updatedUser.toJSON());
-      console.log("updatedCart:", updatedUser.toJSON());
 
       return new Response(updatedUser);
     }
