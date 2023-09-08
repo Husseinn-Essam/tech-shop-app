@@ -50,7 +50,7 @@ const UserStatus: React.FC<navLinkProps> = ({ mobileLinks }) => {
           </div>
         ) : (
           <>
-            <div className="flex flex-col mt-4 gap-4 items-center text-lg">
+            <div className="flex flex-col mt-4 gap-4 items-baseline text-lg">
               <button
                 onClick={() => router.push("/cart")}
                 className="flex flex-row relative mr-4 gap-1"
@@ -94,7 +94,7 @@ const UserStatus: React.FC<navLinkProps> = ({ mobileLinks }) => {
           </button>
         </div>
       ) : (
-        <div className="flex flex-row gap-4 items-center text-lg">
+        <div className="flex flex-row gap-4 items-baseline text-lg">
           <div>Hello, {session.user?.name} ! </div>
           <button
             onClick={() => router.push("/cart")}

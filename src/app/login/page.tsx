@@ -36,7 +36,6 @@ const RegisterPage: React.FC = () => {
       if (sign.ok) {
         setLoading(false);
         if (status == "unauthenticated") setErr(sign.error);
-        else if (status == "authenticated") router.push("./");
       }
     } catch (e) {
       console.log(e);
@@ -47,6 +46,7 @@ const RegisterPage: React.FC = () => {
   if (Loading === true) {
     return <LoadingScreen />;
   }
+  if (status === "authenticated") router.push("http://localhost:3000/store");
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="flex flex-col items-center bg-white p-8 rounded-lg shadow-md w-full max-w-sm">

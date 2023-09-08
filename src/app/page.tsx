@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 export default function Home() {
   const router = useRouter();
   return (
@@ -7,10 +8,14 @@ export default function Home() {
       <div className="hero h-full bg-gray-900 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="flex flex-col gap-2 md:flex-row items-center">
-            <div className="md:w-1/2">
-              <h1 className="text-4xl font-semibold mb-4">
-                Welcome to Tech Store
-              </h1>
+            <div className="md:w-1/2 ml-10">
+              <div className="flex flex-col">
+                <h1 className="text-5xl font-bold mb-4">Discover</h1>
+                <h1 className="text-5xl font-bold mb-4">
+                  the latest gadgets and
+                </h1>
+                <h1 className="text-5xl font-bold mb-4"> tech products</h1>
+              </div>
               <p className="text-lg mb-6">
                 Discover the latest gadgets and tech products at unbeatable
                 prices.
@@ -23,11 +28,17 @@ export default function Home() {
               </button>
             </div>
             <div className="md:w-1/2">
-              <img
-                src="https://www.freeiconspng.com/uploads/laptop-png-8.png"
+              {/* <img
+                src=""
                 width="350"
                 alt="High Resolution Laptop Png Icon"
                 className="w-full rounded-md shadow-lg"
+              /> */}
+              <Image
+                src="https://www.freeiconspng.com/uploads/laptop-png-8.png"
+                width="600"
+                height="600"
+                alt="High Resolution Laptop Png Icon"
               />
             </div>
           </div>
