@@ -121,13 +121,13 @@ function Cashout() {
               }
             ></input>
           </div>
-          <p>
-            {Object.values(errors).map((err: any) => (
-              <>
-                <p className="text-red-500">{err} </p>
-              </>
+          <div>
+            {Object.values(errors).map((err: any, index: number) => (
+              <p key={index} className="text-red-500">
+                {err}
+              </p>
             ))}
-          </p>
+          </div>
           <button className="bg-blue-600 text-white p-3 mt-4" type="submit">
             Cash Out
           </button>
