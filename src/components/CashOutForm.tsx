@@ -67,7 +67,7 @@ export const CashOutForm = () => {
   };
 
   return (
-    <section className="flex p-7 bg-white flex-col w-fit flex-wrap ">
+    <section className=" w-2/3 flex p-7 bg-white flex-col w-fit flex-wrap ">
       <h1 className="text-2xl font-bold">Cash Out</h1>
       <form
         className="flex  flex-col gap-2 mt-10"
@@ -123,6 +123,9 @@ export const CashOutForm = () => {
         </div>
         <button className="bg-blue-600 text-white p-3 mt-4" type="submit">
           Cash Out
+        </button>
+        <button className="bg-blue-600 text-white p-3 mt-4">
+          Bruh Just let me test your app
         </button>
       </form>
     </section>
