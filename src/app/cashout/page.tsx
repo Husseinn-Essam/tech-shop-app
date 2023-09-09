@@ -28,12 +28,12 @@ function Cashout() {
     CCV: "",
   });
 
-  const isValidCardNumber = (creditNumber) => {
+  const isValidCardNumber = (creditNumber: string) => {
     const regex = /^[0-9]{16}$/;
     return regex.test(creditNumber);
   };
 
-  const isValidExpirationDate = (ExpDate) => {
+  const isValidExpirationDate = (ExpDate: string) => {
     const currentDate = new Date();
     const [month, year] = ExpDate.split("/").map(Number);
     const expiration = new Date(2000 + year, month - 1);
@@ -41,7 +41,7 @@ function Cashout() {
     return expiration > currentDate;
   };
 
-  const isValidCVV = (CCV) => {
+  const isValidCVV = (CCV: string) => {
     return CCV.length === 3;
   };
 

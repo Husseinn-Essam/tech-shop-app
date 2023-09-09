@@ -3,15 +3,62 @@ import React, { useState } from "react";
 import { getProviders, signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import LoadingScreen from "@/components/LoadingScreen";
+type FormDataType = {
+  username: string;
+  email: string;
+  password: string;
+};
+type FormErrorType = {
+  username: string;
+  email: string;
+  password: string;
+};
+
 const RegisterPage: React.FC = () => {
-  const [err, setErr] = useState("");
+  const [errors, setErrors] = useState<FormErrorType>({
+    username: "",
+    email: "",
+    password: "",
+  });
   const router = useRouter();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormDataType>({
     username: "",
     email: "",
     password: "",
   });
   const [Loading, setLoading] = useState(false);
+  const validateForm = () => {
+    const errors: FormErrorType = {
+      username: "",
+      email: "",
+      password: "",
+    };
+
+    if (!formData.username.trim()) {
+      errors.username = "Username is required";
+      setErrors(errors);
+
+      return false;
+    }
+
+    if (!formData.email.trim()) {
+      errors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = "Email is not valid";
+      setErrors(errors);
+      return false;
+    }
+
+    if (formData.password.length < 6) {
+      errors.password = "Password must be at least 6 characters";
+      setErrors(errors);
+      return false;
+    }
+    console.log(errors.username);
+
+    // setErrors(errors);
+    return true;
+  };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -23,37 +70,40 @@ const RegisterPage: React.FC = () => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    try {
-      setLoading(true);
-      const res = await fetch("/api/auth/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: formData.username,
-          email: formData.email,
-          password: formData.password,
-        }),
-      });
+    if (validateForm()) {
       try {
-        const sign = await signIn("credentials", {
-          username: formData.username,
-          password: formData.password,
-          callbackUrl: "/store?cat=",
-          redirect: false,
+        console.log("hi");
+
+        setLoading(true);
+        const res = await fetch("/api/auth/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: formData.username,
+            email: formData.email,
+            password: formData.password,
+          }),
         });
-        console.log(sign.error);
-        if (sign.ok) {
-          setLoading(false);
-          router.back();
+        try {
+          const sign = await signIn("credentials", {
+            username: formData.username,
+            password: formData.password,
+            callbackUrl: "/store?cat=",
+            redirect: false,
+          });
+          console.log(sign.error);
+          if (sign.ok) {
+            setLoading(false);
+            router.push("/");
+          }
+        } catch (e) {
+          console.log(e);
         }
-        setErr(sign.error);
       } catch (e) {
         console.log(e);
       }
-    } catch (e) {
-      console.log(e);
     }
   };
   if (Loading === true) {
@@ -99,6 +149,11 @@ const RegisterPage: React.FC = () => {
               onChange={handleInputChange}
               className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
             />
+          </div>
+          <div>
+            {Object.values(errors).map((err) => (
+              <>{err} </>
+            ))}
           </div>
           <button
             type="submit"
