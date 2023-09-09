@@ -141,3 +141,13 @@ body {
 .add-to-cart-btn:hover {
   transform: scale(1.05);
 }
+
+.cash-out-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin-top: 8px;
+  justify-content: center;
+  padding: 17px;
+  gap: 20px;
+}

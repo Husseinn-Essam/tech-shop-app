@@ -37,7 +37,7 @@ const Cart: React.FC = () => {
   };
   return (
     <tbody>
-      {user.data.cart?.map((item) => (
+      {user?.data?.cart?.map((item) => (
         <tr key={item._id} className="border-b">
           <td className="py-2 px-4">{item.name}</td>
           <td className="py-2 px-4 flex gap-2 justify-center text-2xl">

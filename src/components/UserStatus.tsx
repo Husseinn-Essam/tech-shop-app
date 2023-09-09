@@ -34,7 +34,7 @@ const UserStatus: React.FC<navLinkProps> = ({ mobileLinks }) => {
     return (
       <>
         {!session ? (
-          <div className="flex flex-col mt-5 gap-2">
+          <div className="flex flex-col  mt-5 gap-2">
             <button
               onClick={() => router.push("/register")}
               className="text-slate-800 bg-white p-2 rounded font-sans font-bold"
@@ -94,7 +94,7 @@ const UserStatus: React.FC<navLinkProps> = ({ mobileLinks }) => {
           </button>
         </div>
       ) : (
-        <div className="flex flex-row gap-4 items-baseline text-lg">
+        <div className="flex flex-row gap-4 items-center text-lg">
           <div>Hello, {session.user?.name} ! </div>
           <button
             onClick={() => router.push("/cart")}
