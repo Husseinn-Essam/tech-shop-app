@@ -4,7 +4,7 @@ import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import LoadingScreen from "@/components/LoadingScreen";
 
-const RegisterPage: React.FC = () => {
+const LoginPage: React.FC = () => {
   const [err, setErr] = useState("");
   const [formData, setFormData] = useState({
     username: "",
@@ -41,12 +41,11 @@ const RegisterPage: React.FC = () => {
       console.log(e);
     }
   };
-
-  // Render the loading when authing
+  // renders loading screen when auth
   if (Loading === true) {
     return <LoadingScreen />;
   }
-  if (status === "authenticated") router.push("http://localhost:3000/store");
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="flex flex-col items-center bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
@@ -100,4 +99,4 @@ const RegisterPage: React.FC = () => {
   );
 };
 
-export default RegisterPage;
+export default LoginPage;

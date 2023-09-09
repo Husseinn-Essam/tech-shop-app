@@ -96,7 +96,6 @@ const RegisterPage: React.FC = () => {
           console.log(sign.error);
           if (sign.ok) {
             setLoading(false);
-            router.push("/");
           }
         } catch (e) {
           console.log(e);
@@ -109,6 +108,7 @@ const RegisterPage: React.FC = () => {
   if (Loading === true) {
     return <LoadingScreen />;
   }
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="flex flex-col items-center bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
@@ -151,8 +151,10 @@ const RegisterPage: React.FC = () => {
             />
           </div>
           <div>
-            {Object.values(errors).map((err) => (
-              <>{err} </>
+            {Object.values(errors).map((err: any, index: number) => (
+              <p key={index} className="text-red-500">
+                {err}
+              </p>
             ))}
           </div>
           <button

@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { getUsers, getUser, changeItemQuantity } from "@/services/userServices";
-import { useSession, SessionProvider } from "next-auth/react";
+import {  getUser, changeItemQuantity } from "@/services/userServices";
+import { useSession } from "next-auth/react";
 import { PlusCircleIcon, MinusCircleIcon } from "@heroicons/react/20/solid";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
