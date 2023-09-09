@@ -80,6 +80,15 @@ body {
   .nav {
     display: none;
   }
+
+  .cash-out-container {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 8px;
+    justify-content: center;
+    padding: 17px;
+    gap: 20px;
+  }
 }
 @media (min-width: 877px) {
   .nav {
@@ -93,7 +102,6 @@ body {
 
 .card-container {
   position: relative;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -145,7 +153,6 @@ body {
 .cash-out-container {
   display: flex;
   width: 100%;
-  height: 100%;
   margin-top: 8px;
   justify-content: center;
   padding: 17px;

@@ -67,10 +67,10 @@ export const CashOutForm = () => {
   };
 
   return (
-    <section className=" w-2/3 flex p-7 bg-white flex-col w-fit flex-wrap ">
+    <section className="lg:w-2/3 md:w-full sm:w-full md:block flex p-7 bg-white flex-col flex-wrap">
       <h1 className="text-2xl font-bold">Cash Out</h1>
       <form
-        className="flex  flex-col gap-2 mt-10"
+        className="flex flex-wrap  flex-col gap-2 mt-10"
         onSubmit={(e) => handleSubmit(e)}
       >
         <div className="flex flex-col gap-2">

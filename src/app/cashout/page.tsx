@@ -6,7 +6,7 @@ import React, { useState } from "react";
 function Cashout() {
   return (
     <>
-      <div className="cash-out-container ">
+      <div className="cash-out-container  ">
         <CashOutForm />
         <ItemsToCashOut />
       </div>

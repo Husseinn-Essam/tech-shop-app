@@ -24,7 +24,7 @@ export const ItemsToCashOut = () => {
       <h2 className="text-2xl font-semibold mb-4">Cart Items</h2>
       <div className="flex flex-col gap-2">
         {user?.data?.cart?.map((item) => (
-          <div key={item.id} className="flex justify-between items-center">
+          <div key={item._id} className="flex justify-between items-center">
             <p>
               {item.quantity} of {item.name}
             </p>
