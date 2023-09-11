@@ -2,12 +2,9 @@
 import React from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { ShoppingCartIcon } from "@heroicons/react/20/solid";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import ProductType from "@/types/ProductType";
-import { useQuery } from "@tanstack/react-query";
-import { getUsers, getUser } from "@/services/userServices";
 import CartProductNumber from "./CartProductNumber";
-import LoadingScreen from "./LoadingScreen";
 interface userData {
   role: string;
   _id: string;

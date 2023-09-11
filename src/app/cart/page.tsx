@@ -2,8 +2,10 @@
 import React from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-
+import { useQuery } from "@tanstack/react-query";
+import { getUser, changeItemQuantity } from "@/services/userServices";
 import Cart from "@/components/Cart";
+import User from "@/models/User";
 interface CartItem {
   _id: string;
   name: string;
@@ -16,11 +18,22 @@ interface CartProps {
 const CartPage: React.FC<any> = () => {
   const { data: session } = useSession();
   const router = useRouter();
+  const user = useQuery({
+    queryKey: ["user"],
+    queryFn: () => {
+      if (session?.user?._doc?._id) {
+        return getUser(session.user._doc._id);
+      }
+      return null;
+    },
+    suspense: true,
+    staleTime: 5 * 1000,
+  });
 
   return (
-    <div className="cart mt-4 p-3 flex flex-col">
+    <div className="cart mt-4 p-3 flex flex-col overflow-scroll">
       <h2 className="text-xl font-semibold mb-2 text-white">Your Cart</h2>
-      <table className="w-full border-collapse bg-gray-100">
+      <table className="  w-full border-collapse bg-gray-100 overflow-scroll">
         <thead>
           <tr className="bg-gray-100">
             <th className="py-2 px-4 text-left">Product Name</th>
@@ -30,15 +43,16 @@ const CartPage: React.FC<any> = () => {
         </thead>
         {session ? <Cart /> : ""}
       </table>
-      {/* <button className="bg-white text-black mx-auto mt-5 p-5 rounded-lg">
-        Cash Out
-      </button> */}
-      <button
-        onClick={() => router.push("/cashout")}
-        className="px-4 py-2 w-60 mt-2 mx-auto bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md transition duration-300 ease-in-out"
-      >
-        Cash Out
-      </button>
+      {user?.data?.cart.length > 0 ? (
+        <button
+          onClick={() => router.push("/cashout")}
+          className="self-center px-4 py-2 w-60 mt-2 mx-auto bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md transition duration-300 ease-in-out"
+        >
+          Cash Out
+        </button>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

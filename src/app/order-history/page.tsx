@@ -7,7 +7,7 @@ const OrderHistory = () => {
   const { data: session } = useSession();
 
   return (
-    <div className="cart mt-4 p-3 flex flex-col">
+    <div className="cart mt-4 p-3 flex flex-col overflow-scroll">
       <h2 className="text-xl font-semibold mb-2 text-white">Order History</h2>
       <table className="w-full border-collapse bg-gray-100">
         <thead>
@@ -20,9 +20,6 @@ const OrderHistory = () => {
         </thead>
         {session ? <Orders /> : ""}
       </table>
-      {/* <button className="bg-white text-black mx-auto mt-5 p-5 rounded-lg">
-            Cash Out
-          </button> */}
     </div>
   );
 };

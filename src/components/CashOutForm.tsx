@@ -1,5 +1,9 @@
+import { makeOrder } from "@/services/userServices";
 import React from "react";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+
 type FormData = {
   name: string;
   creditNumber: string;
@@ -19,7 +23,8 @@ export const CashOutForm = () => {
     ExpDate: "",
     CCV: "",
   });
-
+  const { data: session, status } = useSession();
+  const router = useRouter();
   const [errors, setErrors] = useState<FormErrors>({
     creditNumber: "",
     ExpDate: "",
@@ -64,6 +69,11 @@ export const CashOutForm = () => {
     }
 
     setErrors(newErrors);
+
+    if (Object.values(newErrors).every((error) => !error)) {
+      makeOrder(session?.user?._doc._id);
+      router.push("/order-history");
+    }
   };
 
   return (
@@ -124,7 +134,14 @@ export const CashOutForm = () => {
         <button className="bg-blue-600 text-white p-3 mt-4" type="submit">
           Cash Out
         </button>
-        <button className="bg-blue-600 text-white p-3 mt-4">
+        <button
+          className="bg-blue-600 text-white p-3 mt-4"
+          onClick={(e) => {
+            e.preventDefault();
+            makeOrder(session?.user?._doc._id);
+            router.push("/order-history");
+          }}
+        >
           Bruh Just let me test your app
         </button>
       </form>
