@@ -27,6 +27,18 @@ export function verifyJwt(token: string) {
   }
 }
 
+export function generateShortOrderID(length: number) {
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let orderID = "";
+
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    orderID += characters.charAt(randomIndex);
+  }
+
+  return orderID;
+}
+
 export const updateSearchParams = (type: string, value: string) => {
   //console.log(value);
 

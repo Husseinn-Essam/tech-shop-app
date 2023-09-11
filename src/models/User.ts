@@ -27,6 +27,25 @@ const userSchema = new mongoose.Schema({
       quantity: Number,
     },
   ],
+
+  orders: [
+    {
+      id: String,
+      date: Date,
+      totalAmount: Number,
+      status: String,
+      details: [
+        {
+          name: String,
+          price: Number,
+          stock: Number,
+          rating: Number,
+          images: [String],
+          quantity: Number,
+        },
+      ],
+    },
+  ],
   role: {
     type: String,
     enum: ["user", "admin"],

@@ -12,6 +12,18 @@ export const getUsers = async () => {
   }
 };
 
+// uses diff url
+export const makeOrder = async (id: string | undefined) => {
+  if (!id) return;
+  const options = {
+    method: "PUT",
+  };
+  const response = await fetch(`api/orders/${id}`, options);
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+};
+
 export const changeItemQuantity = async (
   mode: string,
   productName: string,
