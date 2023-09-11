@@ -18,7 +18,7 @@ export const PUT = async (req: NextRequest, { params }) => {
 
     user.orders.push({
       id: generateShortOrderID(4),
-      date: new Date(),
+      date: new Date().toISOString().slice(0, 19).replace("T", " "),
       totalAmount: user.cart.reduce((total, item) => {
         return total + item.price * item.quantity;
       }, 0),
