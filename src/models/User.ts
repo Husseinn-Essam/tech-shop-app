@@ -24,7 +24,10 @@ const userSchema = new mongoose.Schema({
       stock: Number,
       rating: Number,
       images: [String],
-      quantity: Number,
+      quantity: {
+        type: Number,
+        default: 1,
+      },
     },
   ],
 

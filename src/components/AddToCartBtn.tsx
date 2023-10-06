@@ -21,22 +21,7 @@ const AddToCartBtn: React.FC<Props> = ({ name, price, rating, images }) => {
   const router = useRouter();
   const cartMutation = useMutation<void, Error, [string, Props, string]>({
     mutationFn: (variables) => addProductToCart(...variables),
-    // onMutate: () => {
-    //   queryClient.setQueryData(["user"], (prevData: User) => {
-    //     if (prevData) {
-    //       return {
-    //         ...prevData,
-    //         cart: prevData.cart.push({
-    //           name: name,
-    //           price: price,
-    //           rating: rating,
-    //           images: images,
-    //         }),
-    //       };
-    //     }
-    //     return prevData;
-    //   });
-    // },
+
     onSuccess: () => {
       queryClient.invalidateQueries(["user"]);
     },
@@ -46,7 +31,7 @@ const AddToCartBtn: React.FC<Props> = ({ name, price, rating, images }) => {
     if (session?.user?.name && session?.accessToken) {
       cartMutation.mutate([
         session.user.name,
-        { name, price, rating, images, quantity: 1 },
+        { name, price, rating, images },
         session.accessToken,
       ]);
     } else {
