@@ -1,34 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# eCommerce App
 
-## Getting Started
+Developed a feature-rich e-commerce website with Next.js, Tailwind CSS, and Node.js.
 
-First, run the development server:
+- Live Demo: https://tech-shop-app.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Product Browsing**: Browse a wide range of products, including detailed descriptions and images.
+- **Sorting**: Sort products by various criteria like price, popularity, and more.
+- **Search Functionality**: Easily search for products by name or category.
+- **Order History**: Keep track of past orders for reference.
+- **User Authentication**: Secure user authentication for protected features and personalized experiences.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Chrome Lighthouse Score
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+These are the scores of the store page
+![Local Image](./Lighthouse.png)
 
-## Learn More
+## Technology Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Next.js**: Utilized for server-side rendering (SSR) to enhance performance and SEO optimization.
+- **Tailwind CSS**: Provided responsive and beautiful styling with minimal effort.
+- **Node.js**: Supported server-side logic and API endpoints.
+- **Auth.js**: Integrated for secure user authentication and personalized experiences.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Key Decisions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Why Use Next.js?
 
-## Deploy on Vercel
+Next.js was chosen to leverage its server-side rendering (SSR) capabilities, which significantly enhance the performance and SEO optimization of the e-commerce website. SSR ensures faster load times and improved search engine rankings, resulting in a better user experience.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Why Use TypeScript?
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+TypeScript was used to bring strong typing to the project, reducing runtime errors and providing better code quality. It enhances code readability and maintainability while also offering excellent support for autocompletion and type checking during development.
+
+### Why Use Tailwind CSS?
+
+Tailwind CSS was chosen to expedite the styling process with pre-designed utility classes, ensuring consistency and responsiveness across the application. It simplifies the creation of a visually appealing user interface and reduces the need for custom CSS.
+
+### Testing
+
+For this project i didn't use any testing strategy, that said In the pursuit of enhancing the quality of this project, i plan to refactor some code, and add new features to the project, so i plan on adding unit tests and end to end testing to some parts that i plan to refactor.
+
+## Next Steps
+
+### Add an Admin panel, for products, users and orders management.
+
+### Optimistic updates with react query
+
+### Refactor code and add tests
+
+### Improve the UI design
