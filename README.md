@@ -1,4 +1,4 @@
-# eCommerce App
+# eCommerce Tech Shop App
 
 Developed a feature-rich e-commerce website with Next.js, Tailwind CSS, and Node.js.
 
@@ -14,7 +14,8 @@ Developed a feature-rich e-commerce website with Next.js, Tailwind CSS, and Node
 
 ## Chrome Lighthouse Score
 
-These are the scores of the store page
+-These are the scores of the store page
+
 ![Local Image](./Lighthouse.png)
 
 ## Technology Stack
