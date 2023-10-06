@@ -14,7 +14,7 @@ Developed a feature-rich e-commerce website with Next.js, Tailwind CSS, and Node
 
 ## Chrome Lighthouse Score
 
--These are the scores of the store page
+- These are the scores of the store page
 
 ![Local Image](./Lighthouse.png)
 
@@ -43,12 +43,12 @@ Tailwind CSS was chosen to expedite the styling process with pre-designed utilit
 
 For this project i didn't use any testing strategy, that said In the pursuit of enhancing the quality of this project, i plan to refactor some code, and add new features to the project, so i plan on adding unit tests and end to end testing to some parts that i plan to refactor.
 
-## Next Steps
+- Next Steps
 
-### Add an Admin panel, for products, users and orders management.
+- Add an Admin panel, for products, users and orders management.
 
-### Optimistic updates with react query
+- Optimistic updates with react query
 
-### Refactor code and add tests
+- Refactor code and add tests
 
-### Improve the UI design
+- Improve the UI design
