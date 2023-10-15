@@ -96,6 +96,7 @@ const RegisterPage: React.FC = () => {
           console.log(sign.error);
           if (sign.ok) {
             setLoading(false);
+            router.push("/store?cat=");
           }
         } catch (e) {
           console.log(e);

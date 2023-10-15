@@ -35,6 +35,7 @@ const LoginPage: React.FC = () => {
 
       if (sign.ok) {
         setLoading(false);
+        router.push("/store?cat=");
         if (status == "unauthenticated") setErr(sign.error);
       }
     } catch (e) {

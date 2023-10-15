@@ -19,6 +19,7 @@ export const makeOrder = async (id: string | undefined) => {
     method: "PUT",
   };
   const response = await fetch(`api/orders/${id}`, options);
+  if (response.ok) return true;
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
