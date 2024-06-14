@@ -5,6 +5,7 @@ import { getUser, changeItemQuantity } from "@/services/userServices";
 import { useSession } from "next-auth/react";
 import { PlusCircleIcon, MinusCircleIcon } from "@heroicons/react/20/solid";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import LoadingScreen from "./LoadingScreen";
 
 const Orders: React.FC = () => {
   const { data: session } = useSession();
@@ -19,9 +20,10 @@ const Orders: React.FC = () => {
       return null;
     },
     suspense: true,
-    staleTime: 5 * 1000,
   });
-
+  if (user.isLoading) {
+    return <LoadingScreen />;
+  }
   return (
     <tbody>
       {user?.data?.orders?.map((item) => (

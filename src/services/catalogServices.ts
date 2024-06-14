@@ -1,5 +1,5 @@
 const baseurl: string =
-  "https://tech-shop-l21wgoapa-husseinessam294-gmailcom.vercel.app/api/products";
+  "https://tech-shop-app.vercel.app/api/products";
 
 const getAllProds = async () => {
   try {

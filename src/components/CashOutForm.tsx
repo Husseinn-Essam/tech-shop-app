@@ -71,8 +71,11 @@ export const CashOutForm = () => {
     setErrors(newErrors);
 
     if (Object.values(newErrors).every((error) => !error)) {
-      makeOrder(session?.user?._doc._id);
-      router.push("/order-history");
+      makeOrder(session?.user?._doc._id).then(() => {
+        router.push("/order-history");
+        console.log(session?.user);
+      });
+      // router.push("/order-history");
     }
   };
 
