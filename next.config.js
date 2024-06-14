@@ -12,4 +12,9 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+
+// Wrap the nextConfig with withBundleAnalyzer
+module.exports = withBundleAnalyzer(nextConfig);

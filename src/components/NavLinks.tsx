@@ -4,34 +4,25 @@ import { usePathname } from "next/navigation";
 import React from "react";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
-
+import UserStatus from "./UserStatus";
 interface navLinkProps {
   mobileLinks: boolean;
 }
-const NavLinks: React.FC<navLinkProps> = ({ mobileLinks }) => {
+const NavLinks: React.FC = () => {
   const { data: session } = useSession();
 
-  if (!mobileLinks) {
+  {
     return (
       <>
-        <nav className="flex items-center justify-center self-center gap-6 text-lg ">
+        <nav className="flex flex-col items-center justify-center self-center gap-3  text-lg w-6">
           <Link href="/">Home</Link>
           <Link href="/store?cat=">Store</Link>
           {session ? <Link href="/order-history">Order History</Link> : ""}
+          <UserStatus  />
         </nav>
       </>
     );
-  } else {
-    return (
-      <div>
-        <nav className="flex flex-col items-baseline ml-4 gap-6 text-lg ">
-          <Link href="/">Home</Link>
-          <Link href="/store?cat=">Store</Link>
-          {session ? <Link href="/order-history">Order History</Link> : ""}
-        </nav>
-      </div>
-    );
-  }
+  } 
 };
 
 export default NavLinks;
