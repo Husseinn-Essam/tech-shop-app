@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import NavLinks from "./NavLinks";
+import Link from "next/link";
 
 import { useSession } from "next-auth/react";
 import { ShoppingCartIcon } from "@heroicons/react/20/solid";
@@ -12,15 +13,18 @@ const Navbar: React.FC = () => {
   const { data: session } = useSession();
 
   return (
-    <div className="navbar w-full box-border bg-base-100 ">
+    <div data-theme="mytheme" className="navbar w-full box-border bg-base-100 border-solid border-b-2 border-b-violet-400 ">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl flex items-center">
+        <Link href="/">
+        <div className="btn btn-ghost text-xl flex items-center">
+
           <img
             className="h-10 w-10"
             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABpklEQVR4nO2Zy0oDQRBFG/0CF4FkUH9ExBcu1HyOSXAbstG/8Y1KXJh/iWShJMGFUcyR1hZDIBmZ6pfQF4ZhFrlVh7rDNBWlhAKqQBt4obj0b++BfWk/RSFa2FfTN4SehNYrcAhUBF4VoGa88DoZEwWtmkXPuvG8s+X5l6JDUzQzzx1BnDrGIzPPfZ8gHxZBHqZACAHSsOjZCAkyMtmWvOyZgRiFBHEiFQBkE7gEeoK+e8ZjPSTIgmXfL9n0zCuYQOYJI+VL/3YiwMGMU64TkKlTcdWWeZPZcgkyqZbUeI/58gWCaDL6JEo8IG2JcT8ikKHE+D3HfNUixEpOLVyCXOkGLEAsm2OKM5An4lFfAnJNPLqRgOwA49AEfPewWxjEwNQDw4yBIynEorlvAKdAF3j2dHWBM2BrspeiIBdASQUWUNLvq8TgDRgAJ8AaUAaWPF1lU/P458MsBYlGKoGQJuJEKkWLFC0nUilapGg5kUrRIkXLiVSKFilaTqRStIhqrzWQTERvEmPRrQRkO+21Ytprqd/J6P/T9Y7p0eNeS9c616nIa/ATcA77JAZyghEAAAAASUVORK5CYII="
           />
           <span>Tech Store</span>
-        </a>
+        </div>
+        </Link>
       </div>
       <div className="flex items-center gap-5">
         <div className="dropdown dropdown-end relative">
