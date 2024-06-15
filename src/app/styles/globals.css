@@ -10,11 +10,12 @@ html,
 body {
   margin: 0;
   padding: 0;
+ 
 }
 
 body {
   height: 100vh;
-  background-color: #0f172a;
+  color:#2c2d35;
 }
 @media (max-width: 946px) {
   .custom-filters {

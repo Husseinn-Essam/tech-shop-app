@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import catalogServices from '@/services/catalogServices';
@@ -5,8 +6,9 @@ import { useQuery } from '@tanstack/react-query';
 import IKContext from './IKContext';
 import IKImage from './IKImage';
 import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon , ArrowRightCircleIcon} from '@heroicons/react/20/solid';
-
+import { useRouter } from "next/navigation";
 const ProductOverview = () => {
+  const router = useRouter();
   const { data: products, isLoading, error } = useQuery([], catalogServices.getHighestRatedProdsInEachCategory);
 
   const urlEndpoint = `https://ik.imagekit.io/${process.env.NEXT_PUBLIC_IMAGEKITID}`;
@@ -29,7 +31,7 @@ const ProductOverview = () => {
   const handleCheckStore = () => {
     // Implement your logic to navigate to the store page
     // For example, you can use React Router or Next.js Link
-    console.log("Navigating to the store...");
+    router.push('/store');
     // Replace this with your actual navigation code
     // window.location.href = '/store'; // Example for direct navigation
   };
