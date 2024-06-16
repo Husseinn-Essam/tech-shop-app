@@ -47,8 +47,8 @@ For this project i didn't use any testing strategy, that said In the pursuit of 
 
 - Add an Admin panel, for products, users and orders management.
 
-- Optimistic updates with react query
+- ~~Optimistic updates with react query~~
 
 - Refactor code and add tests
 
-- Improve the UI design
+-   ~~Improve the UI design~~
