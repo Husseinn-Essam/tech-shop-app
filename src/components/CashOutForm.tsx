@@ -80,7 +80,7 @@ export const CashOutForm = () => {
   };
 
   return (
-    <section className="lg:w-2/3 md:w-full sm:w-full md:block flex p-7 bg-white flex-col flex-wrap rounded-lg">
+    <section className="lg:w-2/3 md:w-full sm:w-full md:block flex p-7  flex-col flex-wrap rounded-lg shadow-lg border-2 border-solid border-secondary">
       <h1 className="text-2xl font-bold">Cash Out</h1>
       <form
         className="flex flex-wrap  flex-col gap-2 mt-10"
@@ -89,7 +89,7 @@ export const CashOutForm = () => {
         <div className="flex flex-col gap-2">
           <label>Name on card</label>
           <input
-            className="border-solid border-2 border-gray-400  shadow-lg focus:border-solid focus:border-2 rounded-lg p-2 focus:border-black"
+            className="border-solid border-2 border-gray-400  shadow-lg focus:border-solid focus:border-2 rounded-lg p-2 input input-rounded"
             placeholder="Name"
             type="test"
             value={formData.name}
@@ -99,7 +99,7 @@ export const CashOutForm = () => {
         <div className="flex flex-col gap-2">
           <label>Credit Card Number</label>
           <input
-            className="border-solid border-2 border-gray-400  shadow-lg focus:border-solid focus:border-2 rounded-lg p-2 focus:border-black"
+            className="border-solid border-2 border-gray-400  shadow-lg focus:border-solid focus:border-2 rounded-lg p-2 input input-rounded"
             placeholder="XXXX-XXXX-XXXX-XXXX"
             value={formData.creditNumber}
             onChange={(e) =>
@@ -110,7 +110,7 @@ export const CashOutForm = () => {
         <div className="flex flex-col gap-2">
           <label>Expiration Date</label>
           <input
-            className="border-solid border-2 border-gray-400  shadow-lg focus:border-solid focus:border-2 rounded-lg p-2 focus:border-black"
+            className="border-solid border-2 border-gray-400  shadow-lg focus:border-solid focus:border-2 rounded-lg p-2 input input-rounded"
             placeholder="MM/YY"
             value={formData.ExpDate}
             onChange={(e) =>
@@ -121,7 +121,7 @@ export const CashOutForm = () => {
         <div className="flex flex-col gap-2">
           <label>CCV</label>
           <input
-            className="border-solid border-2 border-gray-400  shadow-lg focus:border-solid focus:border-2 rounded-lg p-2 focus:border-black"
+            className="border-solid border-2 border-gray-400  shadow-lg focus:border-solid focus:border-2 rounded-lg p-2 input input-rounded"
             placeholder="CCV"
             value={formData.CCV}
             onChange={(e) => setFormData({ ...formData, CCV: e.target.value })}
@@ -134,18 +134,18 @@ export const CashOutForm = () => {
             </p>
           ))}
         </div>
-        <button className="bg-blue-600 text-white p-3 mt-4" type="submit">
+        <button className="btn btn-secondary text-white p-3 mt-4" type="submit">
           Cash Out
         </button>
         <button
-          className="bg-blue-600 text-white p-3 mt-4"
+          className="btn btn-secondary text-white p-3 mt-4"
           onClick={(e) => {
             e.preventDefault();
             makeOrder(session?.user?._doc._id);
             router.push("/order-history");
           }}
         >
-          Bruh Just let me test your app
+          Skip (tester privilege only)
         </button>
       </form>
     </section>
