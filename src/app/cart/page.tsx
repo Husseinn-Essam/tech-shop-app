@@ -33,9 +33,9 @@ const CartPage: React.FC<any> = () => {
   return (
     <div className="cart mt-4 p-3 flex flex-col overflow-scroll">
       <h2 className="text-xl font-semibold mb-2 text-white">Your Cart</h2>
-      <table className="  border-collapse bg-gray-100 table-fixed w-full">
+      <table className="  border-collapse table-fixed w-full table ">
         <thead>
-          <tr className="bg-gray-100">
+          <tr className="bg-secondary text-white text-lg">
             <th className="py-2 px-4 text-left">Product Name</th>
             <th className="py-2 px-4 text-center">Quantity</th>
             <th className="py-2 px-4 text-left">Price</th>
@@ -46,7 +46,7 @@ const CartPage: React.FC<any> = () => {
       {user?.data?.cart.length > 0 ? (
         <button
           onClick={() => router.push("/cashout")}
-          className="self-center px-4 py-2 w-60 mt-2 mx-auto bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md transition duration-300 ease-in-out"
+          className="self-center px-4 py-2 w-60 mt-2 mx-auto btn btn-secondary text-white "
         >
           Cash Out
         </button>

@@ -19,7 +19,7 @@ export const ItemsToCashOut = () => {
   });
 
   return (
-    <div className="p-4 mt-4 md:mt-0 bg-gray-100 rounded-lg shadow-md">
+    <div className="p-4 mt-4 md:mt-0 rounded-lg shadow-md border-2 border-solid border-secondary">
       <h2 className="text-2xl font-semibold mb-4">Cart Items</h2>
       <div className="flex flex-col gap-2">
         {user?.data?.cart?.map((item) => (

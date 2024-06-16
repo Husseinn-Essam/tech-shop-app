@@ -24,11 +24,11 @@ const SortFilter: React.FC = () => {
 
   return (
     <div>
-      <div className="border rounded text-gray-700">
+      <div className="border-2 border-secondary rounded text-gray-700">
         <select
           value={sortMethod}
           onChange={handleSortChange}
-          className="block px-4 py-2"
+          className="select block px-4 py-2 text-white"
         >
           {methods.map((method) => (
             <option key={method} value={method} className="py-2 px-4">
