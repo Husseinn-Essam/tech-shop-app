@@ -7,6 +7,7 @@ import IKContext from './IKContext';
 import IKImage from './IKImage';
 import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon , ArrowRightCircleIcon} from '@heroicons/react/20/solid';
 import { useRouter } from "next/navigation";
+import LoadingScreen from './LoadingScreen';
 const ProductOverview = () => {
   const router = useRouter();
   const { data: products, isLoading, error } = useQuery([], catalogServices.getHighestRatedProdsInEachCategory);
@@ -15,7 +16,7 @@ const ProductOverview = () => {
 
   const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <LoadingScreen/>;
   if (error) return <p>Error</p>;
 
   const categories = Object.keys(products);
