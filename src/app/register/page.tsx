@@ -124,7 +124,7 @@ const RegisterPage: React.FC = () => {
               name="username"
               value={formData.username}
               onChange={handleInputChange}
-              className="input input-bordered w-full max-w-xs w-full p-2 border border-gray-300 rounded-md "
+              className="input input-bordered w-full max-w-xs w-full p-2 border border-gray-300 rounded-md  bg-slate "
             />
           </div>
           <div className="mb-4">
@@ -136,7 +136,7 @@ const RegisterPage: React.FC = () => {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className="input input-bordered w-full max-w-xs w-full p-2 border border-gray-300 rounded-md "
+              className="input input-bordered w-full max-w-xs w-full p-2 border border-gray-300 rounded-md bg-slate "
             />
           </div>
           <div className="mb-4">
@@ -148,7 +148,7 @@ const RegisterPage: React.FC = () => {
               name="password"
               value={formData.password}
               onChange={handleInputChange}
-              className="text-white input input-bordered w-full max-w-xs w-full p-2 border border-gray-300 rounded-md "
+              className="text-white input input-bordered w-full max-w-xs w-full p-2 border border-gray-300 rounded-md bg-slate "
             />
           </div>
           <div>
