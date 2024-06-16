@@ -1,7 +1,7 @@
-// const baseurl: string =
-//   "https://tech-shop-app.vercel.app/api/products";
 const baseurl: string =
-  "http://localhost:3000/api/products";
+  "https://tech-shop-app.vercel.app/api/products";
+// const baseurl: string =
+//   "http://localhost:3000/api/products";
 
 const getAllProds = async () => {
   try {
