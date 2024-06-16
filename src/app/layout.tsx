@@ -17,8 +17,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html data-theme='mytheme' lang="en" className="bg-slate">
+      <body data-theme='mytheme' className="bg-base">
       
         <AuthProvider>
           <QueryProvider>

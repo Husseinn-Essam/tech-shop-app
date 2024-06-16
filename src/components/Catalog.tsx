@@ -47,7 +47,7 @@ const Catalog: React.FC<CatalogProps> = async ({
   return (
     <>
       {/* <div className="grid grid-cols-[repeat(auto-fill,minmax(256px,1fr))] gap-2"> */}
-      <div className=" grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4 justify-items-center	">
+      <div data-theme='mytheme' className=" grid grid-cols-1 bg-base  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4 justify-items-center	">
         {sortedProds?.length > 0 ? (
           sortedProds.map((prod) => (
             <Card
