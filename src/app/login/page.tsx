@@ -10,7 +10,7 @@ const LoginPage: React.FC = () => {
     username: "",
     password: "",
   });
-  const [Loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { data: session, status } = useSession();
   const router = useRouter();
 
@@ -24,6 +24,7 @@ const LoginPage: React.FC = () => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    setErr(""); // Reset error message
     try {
       setLoading(true);
       const sign = await signIn("credentials", {
@@ -33,24 +34,28 @@ const LoginPage: React.FC = () => {
         redirect: false,
       });
 
+      setLoading(false); // Ensure loading state is reset
       if (sign.ok) {
-        setLoading(false);
         router.push("/store?cat=");
-        if (status == "unauthenticated") setErr(sign.error);
+      } else {
+        setErr("Invalid username or password");
       }
     } catch (e) {
+      setLoading(false); // Ensure loading state is reset
+      setErr("An error occurred. Please try again.");
       console.log(e);
     }
   };
-  // renders loading screen when auth
-  if (Loading === true) {
+
+  // Renders loading screen when auth
+  if (loading) {
     return <LoadingScreen />;
   }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate">
       <div className="flex flex-col items-center bg-slate border-2 border-secondary p-8 rounded-lg shadow-md w-full max-w-sm">
-        <h1 className=" text-3xl font-semibold mb-4">Log In</h1>
+        <h1 className="text-3xl font-semibold mb-4">Log In</h1>
         <form className="flex flex-col items-center" onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-white font-medium mb-2">
@@ -61,7 +66,7 @@ const LoginPage: React.FC = () => {
               name="username"
               value={formData.username}
               onChange={handleInputChange}
-              className="input input-bordered w-full p-2 border border-gray-300 rounded-md "
+              className="input input-bordered w-full p-2 border border-gray-300 rounded-md"
             />
           </div>
           <div className="mb-4">
@@ -73,28 +78,17 @@ const LoginPage: React.FC = () => {
               name="password"
               value={formData.password}
               onChange={handleInputChange}
-              className="input input-bordered w-full p-2 border border-gray-300 rounded-md "
+              className="input input-bordered w-full p-2 border border-gray-300 rounded-md"
             />
           </div>
           <button
             type="submit"
-            className=" text-white py-2 px-4 rounded-md btn btn-secondary"
+            className="text-white py-2 px-4 rounded-md btn btn-secondary"
           >
             Log In
           </button>
-          <p className="mt-2 text-red-600 text-bold">{err ? err : ""}</p>
+          <p className="mt-2 text-red-600 font-bold">{err}</p>
         </form>
-        {/* <div className="my-4 w-full flex items-center before:mt-0.5  before:flex-1 before:border-t before:border-slate-500 after:mt-0.5 after:flex-1 after:border-t after:border-slate-500">
-          <p className="mx-4 mb-0 text-center font-semibold dark:text-slate-500">
-            Or
-          </p>
-        </div>{" "}
-        <button
-          className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300"
-          onClick={() => signIn("google")}
-        >
-          Sign in with Google
-        </button> */}
       </div>
     </div>
   );
