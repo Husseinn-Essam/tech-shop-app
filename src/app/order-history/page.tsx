@@ -14,7 +14,7 @@ const OrderHistory = () => {
       <h2 className="text-xl font-semibold mb-2 text-white">Order History</h2>
       <table className="table border-collapse table-fixed w-full">
         <thead>
-          <tr className="bg-secondary text-white text-lg">
+          <tr className="bg-secondary text-white ">
             <th className="py-2 px-4 text-left"> Order ID</th>
             <th className="py-2 px-4 text-left">Date</th>
             <th className="py-2 px-4 text-left">Total Amount</th>

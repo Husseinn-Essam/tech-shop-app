@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html data-theme='mytheme' lang="en" className="bg-slate">
       <body data-theme='mytheme' className="bg-base">
       
         <AuthProvider>
